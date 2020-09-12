@@ -1,0 +1,10 @@
+{
+  "name": "html-coding-with-hugo",
+  "private": true,
+  "scripts": {
+    "dev": "hugo server",
+    "build": "hugo",
+    "clean": "rmtrash ./dist ./resources"
+  },
+  "license": "MIT"
+}
