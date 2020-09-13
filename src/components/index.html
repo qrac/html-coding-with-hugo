@@ -14,51 +14,66 @@
         font-family: inherit;
       }
       .dashboard {
-        background-color: #f9f9f9;
+        background-color: #ebedef;
       }
       .dashboard-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        background-color: #0a1922;
+        max-width: 980px;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 32px 20px;
       }
       .dashboard-header .dashboard-header-title {
-        color: #fff;
-        font-size: 1.25rem;
+        color: #5e6669;
+        font-size: 1.125em;
         font-weight: 700;
       }
       .dashboard-main {
-        padding: 20px;
+        max-width: 980px;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 0 20px;
       }
-      .dashboard-table-wrap:not(:first-child) {
+      .dashboard-heading {
+        color: #5e6669;
+        font-size: 0.75em;
+        font-weight: 700;
+      }
+      .dashboard-heading:not(:first-child) {
         margin-top: 16px;
       }
-      .dashboard-table {
-        position: relative;
+      .dashboard-links:not(:first-child) {
+        margin-top: 12px;
+      }
+      .dashboard-link {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
         width: 100%;
+        padding: 16px 20px;
         background-color: #fff;
-        border-collapse: collapse;
-        border-spacing: 0;
-        font-size: 0.875rem;
+        text-decoration: none;
       }
-      .dashboard-table thead {
-        border-bottom: 2px solid #ccc;
+      .dashboard-link:not(:first-child) {
+        margin-top: 1px;
       }
-      .dashboard-table,
-      .dashboard-table th,
-      .dashboard-table td {
-        border: 1px solid #ccc;
+      .dashboard-link-title {
+        flex: 1 0 0%;
+        max-width: 100%;
+        color: #5e6669;
+        font-size: 0.875em;
       }
-      .dashboard-table th,
-      .dashboard-table td {
-        padding: 8px 12px;
+      .dashboard-link-path {
+        color: #5e6669;
+        font-size: 0.75em;
       }
       .dashboard-table a {
         color: #0594cb;
       }
       .dashboard-footer {
-        padding: 0 20px 20px;
+        max-width: 980px;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 32px 20px;
       }
     </style>
   </head>
@@ -67,47 +82,25 @@
       <h1 class="dashboard-header-title">{{ .Site.Title }}</h1>
     </header>
     <main class="dashboard-main">
-      <div class="dashboard-table-wrap">
-        <table class="dashboard-table">
-          <thead>
-            <tr>
-              <th>Page Title</th>
-              <th>URL</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- prettier-ignore -->
-            {{ range sort (where .Site.Pages "Params.type" "page") "File.Path" }}
-            <tr>
-              <td>{{ .Title }}</td>
-              <td>
-                <a href="{{ .Permalink }}">/{{ .File.Path }}</a>
-              </td>
-            </tr>
-            {{ end }}
-          </tbody>
-        </table>
+      <h2 class="dashboard-heading">HTML Pages</h2>
+      <div class="dashboard-links">
+        <!-- prettier-ignore -->
+        {{ range sort (where .Site.Pages "Params.type" "page") "File.Path" }}
+        <a class="dashboard-link" href="{{ .Permalink }}">
+          <div class="dashboard-link-title">{{ .Title }}</div>
+          <div class="dashboard-link-path">/{{ .File.Path }}</div>
+        </a>
+        {{ end }}
       </div>
-      <div class="dashboard-table-wrap">
-        <table class="dashboard-table">
-          <thead>
-            <tr>
-              <th>Page Title</th>
-              <th>URL</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- prettier-ignore -->
-            {{ range where .Site.Pages "Params.type" "components" }}
-            <tr>
-              <td>{{ .Title }}</td>
-              <td>
-                <a href="{{ .Permalink }}">/{{ .File.Path }}</a>
-              </td>
-            </tr>
-            {{ end }}
-          </tbody>
-        </table>
+      <h2 class="dashboard-heading">Component Pages</h2>
+      <div class="dashboard-links">
+        <!-- prettier-ignore -->
+        {{ range where .Site.Pages "Params.type" "components" }}
+        <a class="dashboard-link" href="{{ .Permalink }}">
+          <div class="dashboard-link-title">{{ .Title }}</div>
+          <div class="dashboard-link-path">/{{ .File.Path }}</div>
+        </a>
+        {{ end }}
       </div>
     </main>
   </body>
