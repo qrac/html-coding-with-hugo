@@ -4,47 +4,111 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ .Site.Title }}</title>
+    <style>
+      *,
+      ::before,
+      ::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: inherit;
+      }
+      .dashboard {
+        background-color: #f9f9f9;
+      }
+      .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #0a1922;
+      }
+      .dashboard-header .dashboard-header-title {
+        color: #fff;
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+      .dashboard-main {
+        padding: 20px;
+      }
+      .dashboard-table-wrap:not(:first-child) {
+        margin-top: 16px;
+      }
+      .dashboard-table {
+        position: relative;
+        width: 100%;
+        background-color: #fff;
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-size: 0.875rem;
+      }
+      .dashboard-table thead {
+        border-bottom: 2px solid #ccc;
+      }
+      .dashboard-table,
+      .dashboard-table th,
+      .dashboard-table td {
+        border: 1px solid #ccc;
+      }
+      .dashboard-table th,
+      .dashboard-table td {
+        padding: 8px 12px;
+      }
+      .dashboard-table a {
+        color: #0594cb;
+      }
+      .dashboard-footer {
+        padding: 0 20px 20px;
+      }
+    </style>
   </head>
-  <body>
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Page Title</th>
-            <th>URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{ range sort (where .Site.Pages "Params.type" "page") "File.Path" }}
-          <tr>
-            <td>{{ .Title }}</td>
-            <td>
-              <a href="{{ .Permalink }}">/{{ .File.Path }}</a>
-            </td>
-          </tr>
-          {{ end }}
-        </tbody>
-      </table>
-    </div>
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Page Title</th>
-            <th>URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{ range where .Site.Pages "Params.type" "components" }}
-          <tr>
-            <td>{{ .Title }}</td>
-            <td>
-              <a href="{{ .Permalink }}">/{{ .File.Path }}</a>
-            </td>
-          </tr>
-          {{ end }}
-        </tbody>
-      </table>
-    </div>
+  <body class="dashboard">
+    <header class="dashboard-header">
+      <h1 class="dashboard-header-title">{{ .Site.Title }}</h1>
+    </header>
+    <main class="dashboard-main">
+      <div class="dashboard-table-wrap">
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>Page Title</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- prettier-ignore -->
+            {{ range sort (where .Site.Pages "Params.type" "page") "File.Path" }}
+            <tr>
+              <td>{{ .Title }}</td>
+              <td>
+                <a href="{{ .Permalink }}">/{{ .File.Path }}</a>
+              </td>
+            </tr>
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+      <div class="dashboard-table-wrap">
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>Page Title</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- prettier-ignore -->
+            {{ range where .Site.Pages "Params.type" "components" }}
+            <tr>
+              <td>{{ .Title }}</td>
+              <td>
+                <a href="{{ .Permalink }}">/{{ .File.Path }}</a>
+              </td>
+            </tr>
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+    </main>
   </body>
 </html>
