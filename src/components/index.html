@@ -10,7 +10,7 @@
       <table>
         <thead>
           <tr>
-            <th>Page Name</th>
+            <th>Page Title</th>
             <th>URL</th>
           </tr>
         </thead>
@@ -19,7 +19,7 @@
           <tr>
             <td>{{ .Title }}</td>
             <td>
-              <a href="{{ .Permalink }}">{{ .Permalink }}</a>
+              <a href="{{ .Permalink }}">/{{ .File.Path }}</a>
             </td>
           </tr>
           {{ end }}
@@ -30,7 +30,7 @@
       <table>
         <thead>
           <tr>
-            <th>Page Name</th>
+            <th>Page Title</th>
             <th>URL</th>
           </tr>
         </thead>
@@ -39,7 +39,7 @@
           <tr>
             <td>{{ .Title }}</td>
             <td>
-              <a href="{{ .Permalink }}">{{ .Permalink }}</a>
+              <a href="{{ .Permalink }}">/{{ .File.Path }}</a>
             </td>
           </tr>
           {{ end }}
