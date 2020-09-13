@@ -15,7 +15,27 @@
           </tr>
         </thead>
         <tbody>
-          {{ range .Data.Pages.ByTitle }}
+          {{ range sort (where .Site.Pages "Params.type" "page") "File.Path" }}
+          <tr>
+            <td>{{ .Title }}</td>
+            <td>
+              <a href="{{ .Permalink }}">{{ .Permalink }}</a>
+            </td>
+          </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>ページ名</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ range where .Site.Pages "Params.type" "components" }}
           <tr>
             <td>{{ .Title }}</td>
             <td>
