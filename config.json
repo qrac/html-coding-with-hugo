@@ -1,6 +1,6 @@
 {
   "baseURL": "http://example.org/",
-  "languageCode": "ja",
+  "languageCode": "en-us",
   "title": "HTML Coding with Hugo",
   "disableKinds": ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"],
   "layoutDir": "./src/components",
