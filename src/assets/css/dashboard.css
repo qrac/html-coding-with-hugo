@@ -102,6 +102,16 @@
   text-decoration: none;
 }
 
+.dashboard-link.is-draft {
+  background: repeating-linear-gradient(
+    -45deg,
+    #f9f9fa,
+    #f9f9fa 12px,
+    #f2f2f5 0,
+    #f2f2f5 24px
+  );
+}
+
 .dashboard-link::after {
   content: "";
   position: absolute;

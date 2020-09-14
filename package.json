@@ -2,7 +2,8 @@
   "name": "html-coding-with-hugo",
   "private": true,
   "scripts": {
-    "dev": "hugo server",
+    "dev": "hugo server -D",
+    "start": "hugo server",
     "build": "hugo",
     "clean": "rmtrash ./dist ./resources"
   },

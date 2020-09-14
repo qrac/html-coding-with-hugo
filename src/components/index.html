@@ -21,12 +21,16 @@
     </header>
     <main class="dashboard-main">
       <div class="dashboard-main-inner">
-        <h2 class="dashboard-heading">HTML Pages</h2>
+        {{ if where .Site.Pages "Params.type" "components" }}
+        <h2 class="dashboard-heading">HTMLページ</h2>
         <ul class="dashboard-links">
           <!-- prettier-ignore -->
           {{ range sort (where .Site.Pages "Params.type" "page") "File.Path" }}
           <li>
-            <a class="dashboard-link" href="{{ .Permalink }}">
+            <a
+              class="dashboard-link {{ if .Draft }}is-draft{{ end }}"
+              href="{{ .Permalink }}"
+            >
               <div class="dashboard-link-box">
                 <p class="dashboard-link-title">{{ .Title }}</p>
               </div>
@@ -37,12 +41,16 @@
           </li>
           {{ end }}
         </ul>
-        <h2 class="dashboard-heading">Component Pages</h2>
+        {{ end }} {{ if where .Site.Pages "Params.type" "components" }}
+        <h2 class="dashboard-heading">コンポーネント</h2>
         <ul class="dashboard-links">
           <!-- prettier-ignore -->
-          {{ range where .Site.Pages "Params.type" "components" }}
+          {{ range  sort (where .Site.Pages "Params.type" "components") "File.Path" }}
           <li>
-            <a class="dashboard-link" href="{{ .Permalink }}">
+            <a
+              class="dashboard-link {{ if .Draft }}is-draft{{ end }}"
+              href="{{ .Permalink }}"
+            >
               <div class="dashboard-link-box">
                 <p class="dashboard-link-title">{{ .Title }}</p>
               </div>
@@ -53,6 +61,7 @@
           </li>
           {{ end }}
         </ul>
+        {{ end }}
       </div>
     </main>
   </body>
