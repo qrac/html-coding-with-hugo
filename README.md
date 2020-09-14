@@ -8,7 +8,7 @@
 
 日本のよくある HTML テンプレートコーディング業務を、Hugo で爆速ビルド・省エネ化します。
 
-主に、分業（デザイナーが XD・Illustrator・Figma でデザイン → コーダーが HTML・CSS・JS をコーディング → エンジニアが WordPress・Movable Type・Ruby on Rails で実装）している場合のコーダー業務強化を目的としています。
+主に、分業（デザイナーが XD・Illustrator・Figma でデザイン → コーダーが HTML・CSS・JS をコーディング → エンジニアが WordPress・Movable Type・Ruby on Rails で実装）時のコーダー業務強化を目的としています。
 
 モダン JS フレームワークを使える現場や、フルスタックで実装まで行う場合には役立ちません。
 
