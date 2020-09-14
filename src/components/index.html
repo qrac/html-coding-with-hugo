@@ -15,45 +15,76 @@
         box-sizing: border-box;
         font-family: inherit;
       }
+      html {
+        font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+          "Noto Sans Japanese", Meiryo, "Yu Gothic Medium", sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        word-break: break-word;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+      }
       .dashboard {
         background-color: #ebedef;
       }
       .dashboard-header {
-        max-width: 980px;
+        background-color: #ebedef;
+      }
+      .dashboard-header-inner {
+        max-width: 1000px;
         margin-right: auto;
         margin-left: auto;
-        padding: 32px 20px;
+        padding: 20px;
       }
-      .dashboard-header .dashboard-header-title {
+      .dashboard-header-title {
         color: #5e6669;
         font-size: 1.125em;
         font-weight: 700;
       }
       .dashboard-main {
-        max-width: 980px;
+        background-color: #ebedef;
+      }
+      .dashboard-main-inner {
+        max-width: 1000px;
         margin-right: auto;
         margin-left: auto;
-        padding: 0 20px;
+        padding: 8px 20px;
+      }
+      .dashboard-main-inner .dashboard-links {
+        margin-right: -20px;
+        margin-left: -20px;
       }
       .dashboard-heading {
         color: #5e6669;
         font-size: 0.75em;
-        font-weight: 700;
+        font-weight: 600;
       }
       .dashboard-heading:not(:first-child) {
-        margin-top: 16px;
+        margin-top: 24px;
       }
       .dashboard-links:not(:first-child) {
         margin-top: 12px;
       }
       .dashboard-link {
+        position: relative;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        width: 100%;
-        padding: 16px 20px;
+        padding: 16px 36px 16px 20px;
         background-color: #fff;
         text-decoration: none;
+      }
+      .dashboard-link::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        width: 8px;
+        height: 8px;
+        border-top: 2px solid rgba(0, 0, 0, 0.18);
+        border-right: 2px solid rgba(0, 0, 0, 0.18);
+        transform: translateY(-50%) rotate(45deg);
+        z-index: 2;
       }
       .dashboard-link:not(:first-child) {
         margin-top: 1px;
@@ -65,44 +96,65 @@
         font-size: 0.875em;
       }
       .dashboard-link-path {
-        color: #5e6669;
+        color: #6e7679;
         font-size: 0.75em;
-      }
-      .dashboard-table a {
-        color: #0594cb;
+        font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+          Meiryo, monospace, serif;
       }
       .dashboard-footer {
-        max-width: 980px;
+        background-color: #ebedef;
+      }
+      .dashboard-footer-inner {
+        max-width: 1000px;
         margin-right: auto;
         margin-left: auto;
-        padding: 32px 20px;
+        padding: 20px;
+      }
+      @media (min-width: 1000px) {
+        .dashboard-header-inner {
+          padding: 32px 20px;
+        }
+        .dashboard-main-inner .dashboard-links {
+          margin-right: 0;
+          margin-left: 0;
+        }
+        .dashboard-link {
+          border-radius: 4px;
+        }
+        .dashboard-link:not(:first-child) {
+          margin-top: 2px;
+        }
       }
     </style>
   </head>
   <body class="dashboard">
     <header class="dashboard-header">
-      <h1 class="dashboard-header-title">{{ .Site.Title }}</h1>
+      <div class="dashboard-header-inner">
+        <h1 class="dashboard-header-title">{{ .Site.Title }}</h1>
+      </div>
     </header>
     <main class="dashboard-main">
-      <h2 class="dashboard-heading">HTML Pages</h2>
-      <div class="dashboard-links">
-        <!-- prettier-ignore -->
-        {{ range sort (where .Site.Pages "Params.type" "page") "File.Path" }}
-        <a class="dashboard-link" href="{{ .Permalink }}">
-          <div class="dashboard-link-title">{{ .Title }}</div>
-          <div class="dashboard-link-path">/{{ .File.Path }}</div>
-        </a>
-        {{ end }}
-      </div>
-      <h2 class="dashboard-heading">Component Pages</h2>
-      <div class="dashboard-links">
-        <!-- prettier-ignore -->
-        {{ range where .Site.Pages "Params.type" "components" }}
-        <a class="dashboard-link" href="{{ .Permalink }}">
-          <div class="dashboard-link-title">{{ .Title }}</div>
-          <div class="dashboard-link-path">/{{ .File.Path }}</div>
-        </a>
-        {{ end }}
+      <div class="dashboard-main-inner">
+        <h2 class="dashboard-heading">HTML Pages</h2>
+        <div class="dashboard-links">
+          <!-- prettier-ignore -->
+          {{ range sort (where .Site.Pages "Params.type" "page") "File.Path" }}
+          <a class="dashboard-link" href="{{ .Permalink }}">
+            <div class="dashboard-link-title">{{ .Title }}</div>
+            <div class="dashboard-link-path">{{ .File.Path }}</div>
+          </a>
+          {{ end }}
+        </div>
+        <h2 class="dashboard-heading">Component Pages</h2>
+        <div class="dashboard-links">
+          <!-- prettier-ignore -->
+          {{ range where .Site.Pages "Params.type" "components" }}
+          <a class="dashboard-link" href="{{ .Permalink }}">
+            <div class="dashboard-link-title">{{ .Title }}</div>
+            <div class="dashboard-link-path">{{ .File.Path }}</div>
+          </a>
+          {{ end }}
+        </div>
       </div>
     </main>
   </body>
