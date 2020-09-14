@@ -48,15 +48,19 @@
   padding: 8px 20px;
 }
 
-.dashboard-main-inner .dashboard-links {
-  margin-right: -20px;
-  margin-left: -20px;
+.dashboard-main-inner > *:not(:first-child) {
+  margin-top: 12px;
 }
 
-@media (min-width: 1000px) {
-  .dashboard-main-inner .dashboard-links {
-    margin-right: 0;
-    margin-left: 0;
+.dashboard-main-inner > .dashboard-heading:not(:first-child) {
+  margin-top: 24px;
+}
+
+@media (max-width: 999px) {
+  .dashboard-main-inner > .dashboard-links,
+  .dashboard-main-inner > .dashboard-progress {
+    margin-right: -20px;
+    margin-left: -20px;
   }
 }
 
@@ -70,17 +74,9 @@
   font-weight: 600;
 }
 
-.dashboard-heading:not(:first-child) {
-  margin-top: 24px;
-}
-
 /* ---------------------------------------------------
 // Dashboard Links
 //------------------------------------------------- */
-
-.dashboard-links:not(:first-child) {
-  margin-top: 12px;
-}
 
 .dashboard-links > *:not(:first-child) {
   margin-top: 1px;
@@ -153,6 +149,11 @@
   }
 }
 
+.dashboard-link-progress {
+  display: flex;
+  margin-right: 12px;
+}
+
 .dashboard-link-title {
   color: #5e6669;
   font-size: 0.875em;
@@ -166,6 +167,33 @@
     monospace, serif;
   font-weight: 300;
   word-break: break-all;
+}
+
+/* ---------------------------------------------------
+// Dashboard Progress
+//------------------------------------------------- */
+
+.dashboard-progress {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  background-color: #fff;
+}
+
+@media (min-width: 1000px) {
+  .dashboard-progress {
+    border-radius: 4px;
+  }
+}
+
+.dashboard-progress > * {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.dashboard-progress > * > .progress {
+  margin-left: 4px;
 }
 
 /* ---------------------------------------------------

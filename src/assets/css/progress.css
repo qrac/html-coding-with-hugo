@@ -1,0 +1,29 @@
+/* ---------------------------------------------------
+// Progress
+//------------------------------------------------- */
+
+.progress {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 6em;
+  padding: 0.325em 0.5em;
+  background-color: #c9177e;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 0.675em;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.progress.is-1 {
+  background-color: #08a889;
+}
+
+.progress.is-2 {
+  background-color: #0184c0;
+}
+
+.progress.is-3 {
+  background-color: #818388;
+}

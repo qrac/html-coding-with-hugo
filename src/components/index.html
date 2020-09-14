@@ -8,7 +8,8 @@
     {{ $reset := resources.Get "css/reset.css" | resources.ExecuteAsTemplate "reset.css" . }}
     {{ $html := resources.Get "css/html.css" | resources.ExecuteAsTemplate "html.css" . }}
     {{ $dashboard := resources.Get "css/dashboard.css" | resources.ExecuteAsTemplate "dashboard.css" . }}
-    {{ $styles := slice $reset $html $dashboard | resources.Concat "index.css" | minify | fingerprint }}
+    {{ $progress := resources.Get "css/progress.css" | resources.ExecuteAsTemplate "progress.css" . }}
+    {{ $styles := slice $reset $html $dashboard $progress | resources.Concat "index.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="icon" href="/favicon.png" />
@@ -32,6 +33,10 @@
               href="{{ .Permalink }}"
             >
               <div class="dashboard-link-box">
+                <div class="dashboard-link-progress">
+                  <!-- prettier-ignore -->
+                  {{ partial "progress.html" (dict "progress" .Params.progress) }}
+                </div>
                 <p class="dashboard-link-title">{{ .Title }}</p>
               </div>
               <div class="dashboard-link-box">
@@ -62,6 +67,13 @@
           {{ end }}
         </ul>
         {{ end }}
+        <h2 class="dashboard-heading">進捗状況ラベル</h2>
+        <ul class="dashboard-progress">
+          <li>0: {{ partial "progress.html" (dict "progress" 0) }}</li>
+          <li>1: {{ partial "progress.html" (dict "progress" 1) }}</li>
+          <li>2: {{ partial "progress.html" (dict "progress" 2) }}</li>
+          <li>3: {{ partial "progress.html" (dict "progress" 3) }}</li>
+        </ul>
       </div>
     </main>
   </body>
