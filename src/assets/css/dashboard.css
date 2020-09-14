@@ -1,6 +1,14 @@
+/* ---------------------------------------------------
+// Dashboard
+//------------------------------------------------- */
+
 .dashboard {
   background-color: #ebedef;
 }
+
+/* ---------------------------------------------------
+// Dashboard Header
+//------------------------------------------------- */
 
 .dashboard-header {
   background-color: transparent;
@@ -19,6 +27,16 @@
   font-weight: 700;
 }
 
+@media (min-width: 1000px) {
+  .dashboard-header-inner {
+    padding: 32px 20px;
+  }
+}
+
+/* ---------------------------------------------------
+// Dashboard Main
+//------------------------------------------------- */
+
 .dashboard-main {
   background-color: transparent;
 }
@@ -35,6 +53,17 @@
   margin-left: -20px;
 }
 
+@media (min-width: 1000px) {
+  .dashboard-main-inner .dashboard-links {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+/* ---------------------------------------------------
+// Dashboard Haeding
+//------------------------------------------------- */
+
 .dashboard-heading {
   color: #5e6669;
   font-size: 0.75em;
@@ -44,6 +73,10 @@
 .dashboard-heading:not(:first-child) {
   margin-top: 24px;
 }
+
+/* ---------------------------------------------------
+// Dashboard Links
+//------------------------------------------------- */
 
 .dashboard-links:not(:first-child) {
   margin-top: 12px;
@@ -76,19 +109,52 @@
   margin-top: 1px;
 }
 
+@media (min-width: 1000px) {
+  .dashboard-link {
+    border-radius: 4px;
+  }
+  .dashboard-link:not(:first-child) {
+    margin-top: 2px;
+  }
+}
+
 .dashboard-link-title {
-  flex: 1 0 0%;
+  flex: 0 0 100%;
   max-width: 100%;
   color: #5e6669;
   font-size: 0.875em;
+  font-weight: 500;
+}
+
+@media (min-width: 1000px) {
+  .dashboard-link-title {
+    flex: 1 0 0%;
+  }
 }
 
 .dashboard-link-path {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 12px;
   color: #6e7679;
   font-size: 0.75em;
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Meiryo,
     monospace, serif;
+  font-weight: 300;
+  word-break: break-all;
 }
+
+@media (min-width: 1000px) {
+  .dashboard-link-path {
+    flex: 0 1 auto;
+    margin-top: 0;
+    text-align: right;
+  }
+}
+
+/* ---------------------------------------------------
+// Dashboard Footer
+//------------------------------------------------- */
 
 .dashboard-footer {
   background-color: transparent;
@@ -99,20 +165,4 @@
   margin-right: auto;
   margin-left: auto;
   padding: 20px;
-}
-
-@media (min-width: 1000px) {
-  .dashboard-header-inner {
-    padding: 32px 20px;
-  }
-  .dashboard-main-inner .dashboard-links {
-    margin-right: 0;
-    margin-left: 0;
-  }
-  .dashboard-link {
-    border-radius: 4px;
-  }
-  .dashboard-link:not(:first-child) {
-    margin-top: 2px;
-  }
 }
