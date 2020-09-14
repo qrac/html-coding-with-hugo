@@ -1,0 +1,118 @@
+.dashboard {
+  background-color: #ebedef;
+}
+
+.dashboard-header {
+  background-color: transparent;
+}
+
+.dashboard-header-inner {
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+}
+
+.dashboard-header-title {
+  color: #5e6669;
+  font-size: 1.125em;
+  font-weight: 700;
+}
+
+.dashboard-main {
+  background-color: transparent;
+}
+
+.dashboard-main-inner {
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 8px 20px;
+}
+
+.dashboard-main-inner .dashboard-links {
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+.dashboard-heading {
+  color: #5e6669;
+  font-size: 0.75em;
+  font-weight: 600;
+}
+
+.dashboard-heading:not(:first-child) {
+  margin-top: 24px;
+}
+
+.dashboard-links:not(:first-child) {
+  margin-top: 12px;
+}
+
+.dashboard-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16px 36px 16px 20px;
+  background-color: #fff;
+  text-decoration: none;
+}
+
+.dashboard-link::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid rgba(0, 0, 0, 0.18);
+  border-right: 2px solid rgba(0, 0, 0, 0.18);
+  transform: translateY(-50%) rotate(45deg);
+  z-index: 2;
+}
+
+.dashboard-link:not(:first-child) {
+  margin-top: 1px;
+}
+
+.dashboard-link-title {
+  flex: 1 0 0%;
+  max-width: 100%;
+  color: #5e6669;
+  font-size: 0.875em;
+}
+
+.dashboard-link-path {
+  color: #6e7679;
+  font-size: 0.75em;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Meiryo,
+    monospace, serif;
+}
+
+.dashboard-footer {
+  background-color: transparent;
+}
+
+.dashboard-footer-inner {
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px;
+}
+
+@media (min-width: 1000px) {
+  .dashboard-header-inner {
+    padding: 32px 20px;
+  }
+  .dashboard-main-inner .dashboard-links {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .dashboard-link {
+    border-radius: 4px;
+  }
+  .dashboard-link:not(:first-child) {
+    margin-top: 2px;
+  }
+}
