@@ -10,3 +10,8 @@
   box-sizing: border-box;
   font-family: inherit;
 }
+
+ol,
+ul {
+  list-style: none;
+}

@@ -82,6 +82,16 @@
   margin-top: 12px;
 }
 
+.dashboard-links > *:not(:first-child) {
+  margin-top: 1px;
+}
+
+@media (min-width: 1000px) {
+  .dashboard-links > *:not(:first-child) {
+    margin-top: 2px;
+  }
+}
+
 .dashboard-link {
   position: relative;
   display: flex;
@@ -105,51 +115,47 @@
   z-index: 2;
 }
 
-.dashboard-link:not(:first-child) {
-  margin-top: 1px;
-}
-
 @media (min-width: 1000px) {
   .dashboard-link {
     border-radius: 4px;
   }
-  .dashboard-link:not(:first-child) {
-    margin-top: 2px;
+}
+
+.dashboard-link-box {
+  display: flex;
+  flex: 0 0 100%;
+  max-width: 100%;
+  align-items: center;
+}
+
+@media (max-width: 999px) {
+  .dashboard-link-box:not(:first-child) {
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .dashboard-link-box:nth-child(1) {
+    flex: 1 0 0%;
+  }
+  .dashboard-link-box:nth-child(2) {
+    flex: 0 1 auto;
   }
 }
 
 .dashboard-link-title {
-  flex: 0 0 100%;
-  max-width: 100%;
   color: #5e6669;
   font-size: 0.875em;
   font-weight: 500;
 }
 
-@media (min-width: 1000px) {
-  .dashboard-link-title {
-    flex: 1 0 0%;
-  }
-}
-
 .dashboard-link-path {
-  flex: 0 0 100%;
-  max-width: 100%;
-  margin-top: 12px;
   color: #6e7679;
   font-size: 0.75em;
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Meiryo,
     monospace, serif;
   font-weight: 300;
   word-break: break-all;
-}
-
-@media (min-width: 1000px) {
-  .dashboard-link-path {
-    flex: 0 1 auto;
-    margin-top: 0;
-    text-align: right;
-  }
 }
 
 /* ---------------------------------------------------

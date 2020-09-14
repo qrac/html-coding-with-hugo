@@ -22,25 +22,37 @@
     <main class="dashboard-main">
       <div class="dashboard-main-inner">
         <h2 class="dashboard-heading">HTML Pages</h2>
-        <div class="dashboard-links">
+        <ul class="dashboard-links">
           <!-- prettier-ignore -->
           {{ range sort (where .Site.Pages "Params.type" "page") "File.Path" }}
-          <a class="dashboard-link" href="{{ .Permalink }}">
-            <div class="dashboard-link-title">{{ .Title }}</div>
-            <div class="dashboard-link-path">{{ .File.Path }}</div>
-          </a>
+          <li>
+            <a class="dashboard-link" href="{{ .Permalink }}">
+              <div class="dashboard-link-box">
+                <p class="dashboard-link-title">{{ .Title }}</p>
+              </div>
+              <div class="dashboard-link-box">
+                <p class="dashboard-link-path">{{ .File.Path }}</p>
+              </div>
+            </a>
+          </li>
           {{ end }}
-        </div>
+        </ul>
         <h2 class="dashboard-heading">Component Pages</h2>
-        <div class="dashboard-links">
+        <ul class="dashboard-links">
           <!-- prettier-ignore -->
           {{ range where .Site.Pages "Params.type" "components" }}
-          <a class="dashboard-link" href="{{ .Permalink }}">
-            <div class="dashboard-link-title">{{ .Title }}</div>
-            <div class="dashboard-link-path">{{ .File.Path }}</div>
-          </a>
+          <li>
+            <a class="dashboard-link" href="{{ .Permalink }}">
+              <div class="dashboard-link-box">
+                <p class="dashboard-link-title">{{ .Title }}</p>
+              </div>
+              <div class="dashboard-link-box">
+                <p class="dashboard-link-path">{{ .File.Path }}</p>
+              </div>
+            </a>
+          </li>
           {{ end }}
-        </div>
+        </ul>
       </div>
     </main>
   </body>
