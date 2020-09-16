@@ -50,17 +50,17 @@ progress: 0
 
 `src/components/_default`
 
-#### Shortcodes
+#### Shortcodes (Only pages can be used)
 
 `src/components/shortcodes`
 
-#### Partials
+#### Partials (Only components can be used)
 
 `src/components/partials`
 
 ## Hugo Docs
 
-- Hugo: https://gohugo.io/
+- [Hugo](https://gohugo.io/)
   - [Quick Start](https://gohugo.io/getting-started/quick-start/#step-1-install-hugo)
   - [Content Organization](https://gohugo.io/content-management/organization/)
   - [Front Matter](https://gohugo.io/content-management/front-matter/)
@@ -69,7 +69,7 @@ progress: 0
   - [Create Your Own Shortcodes](https://gohugo.io/templates/shortcode-templates/)
   - [Partial Templates](https://gohugo.io/templates/partials/)
 
-※このリポジトリは、コンフィグでディレクトリ構成を JS フレームワーク（Next・Nuxt・Gatsby）ライクにカスタマイズしています。Hugo ドキュメントを読む場合にはデフォルトディレクトリと異なるので注意してください。
+※このリポジトリは、コンフィグでディレクトリ構成を JS フレームワーク（Next・Nuxt・Gatsby）ライクにカスタマイズしています。Hugo ドキュメントを読む場合にはディレクトリ名が異なるので注意してください。
 
 ## Roadmap
 
