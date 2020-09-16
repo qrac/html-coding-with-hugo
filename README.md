@@ -6,7 +6,7 @@
 
 ## About
 
-HTML・SCSS・JS のコーディングを Hugo で爆速化・省エネ化します。
+HTML・SCSS・JS のコーディングを爆速化・省エネ化するフロントエンド環境。
 
 ## How to use
 
@@ -96,8 +96,7 @@ progress: 0
 
 ## License
 
-- HTML Coding with Hugo: MIT
-- [Hugo](https://github.com/gohugoio/hugo/blob/master/LICENSE): Apache License 2.0
+- MIT
 
 ## Credit
 
