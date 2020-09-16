@@ -137,9 +137,44 @@
   z-index: 2;
 }
 
+.dashboard-link-card-badges {
+  flex: 0 1 auto;
+  margin-right: 16px;
+}
+
 @media (min-width: 1000px) {
-  .dashboard-link-card {
-    border-radius: 4px;
+  .dashboard-link-card-badges {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.dashboard-link-card-badges > * {
+  display: flex;
+}
+
+@media (max-width: 999px) {
+  .dashboard-link-card-badges > *:not(:first-child) {
+    margin-top: 6px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .dashboard-link-card-badges > *:not(:first-child) {
+    margin-left: 6px;
+  }
+}
+
+.dashboard-link-card-texts {
+  flex: 1 0 0%;
+  max-width: 100%;
+}
+
+@media (min-width: 1000px) {
+  .dashboard-link-card-texts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -150,39 +185,25 @@
   max-width: 100%;
 }
 
-@media (max-width: 999px) {
-  .dashboard-link-card-box:not(:first-child) {
-    margin-top: 12px;
-  }
-}
-
-@media (min-width: 1000px) {
-  .dashboard-link-card-box:nth-child(1) {
-    flex: 1 0 0%;
-  }
-  .dashboard-link-card-box:nth-child(2) {
-    flex: 0 1 auto;
-  }
-}
-
-.dashboard-link-card-progress {
-  display: flex;
-  margin-right: 12px;
-}
-
-.dashboard-link-card-title {
+.dashboard-link-card-text.is-title {
   color: #5e6669;
   font-size: 0.875em;
   font-weight: 500;
 }
 
-.dashboard-link-card-path {
+.dashboard-link-card-text.is-path {
   color: #6e7679;
   font-size: 0.75em;
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", Meiryo,
     monospace, serif;
   font-weight: 300;
   word-break: break-all;
+}
+
+@media (max-width: 999px) {
+  .dashboard-link-card-text:not(:first-child) {
+    margin-top: 4px;
+  }
 }
 
 /* ---------------------------------------------------
@@ -198,7 +219,7 @@
 .dashboard-badges > * {
   display: flex;
   align-items: center;
-  margin-right: 12px;
+  margin-right: 16px;
 }
 
 .dashboard-badges > * > .dashboard-badge {
@@ -244,6 +265,11 @@
 
 .dashboard-badge.is-progress.is-3 {
   background-color: #818388;
+}
+
+.dashboard-badge.is-assignee {
+  border-color: #818388;
+  color: #6e7679;
 }
 
 /* ---------------------------------------------------

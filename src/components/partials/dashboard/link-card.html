@@ -2,14 +2,18 @@
   class="dashboard-link-card {{ if .Page.Draft }}is-draft{{ end }}"
   href="{{ .Page.Permalink }}"
 >
-  <div class="dashboard-link-card-box">
-    <div class="dashboard-link-card-progress">
+  <ul class="dashboard-link-card-badges">
+    <li>
       <!-- prettier-ignore -->
       {{ partial "dashboard/badge-progress.html" (dict "progress" .Page.Params.progress) }}
-    </div>
-    <p class="dashboard-link-card-title">{{ .Page.Title }}</p>
-  </div>
-  <div class="dashboard-link-card-box">
-    <p class="dashboard-link-card-path">{{ .Page.File.Path }}</p>
+    </li>
+    <li>
+      <!-- prettier-ignore -->
+      {{ partial "dashboard/badge-assignee.html" (dict "assignee" .Page.Params.assignee) }}
+    </li>
+  </ul>
+  <div class="dashboard-link-card-texts">
+    <p class="dashboard-link-card-text is-title">{{ .Page.Title }}</p>
+    <p class="dashboard-link-card-text is-path">{{ .Page.File.Path }}</p>
   </div>
 </a>
