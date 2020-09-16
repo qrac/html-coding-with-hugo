@@ -3,7 +3,9 @@
 {{ else if eq .progress 2 }}
 <span class="dashboard-badge is-progress is-2">検証中</span>
 {{ else if eq .progress 3 }}
-<span class="dashboard-badge is-progress is-3">完了</span>
+<span class="dashboard-badge is-progress is-3">提出済</span>
+{{ else if eq .progress 4 }}
+<span class="dashboard-badge is-progress is-4">完了</span>
 {{ else }}
 <span class="dashboard-badge is-progress">未着手</span>
 {{ end }}

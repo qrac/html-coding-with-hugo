@@ -213,13 +213,13 @@
 .dashboard-badges {
   display: flex;
   flex-wrap: wrap;
-  padding: 16px 20px;
+  padding: 4px 20px 16px 8px;
 }
 
 .dashboard-badges > * {
   display: flex;
   align-items: center;
-  margin-right: 16px;
+  padding: 12px 0 0 12px;
 }
 
 .dashboard-badges > * > .dashboard-badge {
@@ -256,14 +256,18 @@
 }
 
 .dashboard-badge.is-progress.is-1 {
-  background-color: #08a889;
-}
-
-.dashboard-badge.is-progress.is-2 {
   background-color: #0184c0;
 }
 
+.dashboard-badge.is-progress.is-2 {
+  background-color: #ebb951;
+}
+
 .dashboard-badge.is-progress.is-3 {
+  background-color: #08a889;
+}
+
+.dashboard-badge.is-progress.is-4 {
   background-color: #818388;
 }
 

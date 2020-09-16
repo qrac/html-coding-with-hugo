@@ -51,7 +51,7 @@
         <ul class="dashboard-list">
           <li>
             <ul class="dashboard-badges">
-              {{ range $index, $val := seq 4 }}
+              {{ range $index, $val := seq 5 }}
               <li>
                 <span class="dashboard-badge-title">{{ $index }}: </span>
                 {{ partial "dashboard/badge-progress.html" (dict "progress" $index) }}
