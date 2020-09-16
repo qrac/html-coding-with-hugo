@@ -6,10 +6,9 @@
     <title>{{ .Site.Title }}</title>
     <!-- prettier-ignore -->
     {{ $reset := resources.Get "css/reset.css" | resources.ExecuteAsTemplate "reset.css" . }}
-    {{ $html := resources.Get "css/html.css" | resources.ExecuteAsTemplate "html.css" . }}
     {{ $dashboard := resources.Get "css/dashboard.css" | resources.ExecuteAsTemplate "dashboard.css" . }}
     {{ $progress := resources.Get "css/progress.css" | resources.ExecuteAsTemplate "progress.css" . }}
-    {{ $styles := slice $reset $html $dashboard $progress | resources.Concat "index.css" | minify | fingerprint }}
+    {{ $styles := slice $reset $dashboard $progress | resources.Concat "index.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="icon" href="/favicon.png" />
