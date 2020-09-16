@@ -13,16 +13,19 @@
     <link rel="icon" href="/favicon.png" />
   </head>
   <body class="dashboard">
+
     <header class="dashboard-header">
       <div class="dashboard-header-inner">
         <h1 class="dashboard-header-title">{{ .Site.Title }}</h1>
       </div>
     </header>
+
     <main class="dashboard-main">
       <div class="dashboard-main-inner">
+
         {{ if where .Site.Pages "Params.type" "components" }}
         <h2 class="dashboard-heading">HTMLページ</h2>
-        <ul class="dashboard-link-cards">
+        <ul class="dashboard-list">
           <!-- prettier-ignore -->
           {{ range sort (where .Site.Pages "Params.type" "page") "File.Path" }}
           <li>
@@ -33,7 +36,7 @@
         </ul>
         {{ end }} {{ if where .Site.Pages "Params.type" "components" }}
         <h2 class="dashboard-heading">コンポーネント</h2>
-        <ul class="dashboard-link-cards">
+        <ul class="dashboard-list">
           <!-- prettier-ignore -->
           {{ range  sort (where .Site.Pages "Params.type" "components") "File.Path" }}
           <li>
@@ -43,25 +46,22 @@
           {{ end }}
         </ul>
         {{ end }}
+
         <h2 class="dashboard-heading">進捗状況バッジ</h2>
-        <ul class="dashboard-badges">
+        <ul class="dashboard-list">
           <li>
-            <span class="dashboard-badge-title">0: </span>
-            {{ partial "dashboard/badge-progress.html" (dict "progress" 0) }}
-          </li>
-          <li>
-            <span class="dashboard-badge-title">1: </span>
-            {{ partial "dashboard/badge-progress.html" (dict "progress" 1) }}
-          </li>
-          <li>
-            <span class="dashboard-badge-title">2: </span>
-            {{ partial "dashboard/badge-progress.html" (dict "progress" 2) }}
-          </li>
-          <li>
-            <span class="dashboard-badge-title">3: </span>
-            {{ partial "dashboard/badge-progress.html" (dict "progress" 3) }}
+            <ul class="dashboard-badges">
+              {{ range $index, $val := seq 4 }}
+              <li>
+                <span class="dashboard-badge-title">{{ $index }}: </span>
+                {{ partial "dashboard/badge-progress.html" (dict "progress" $index) }}
+              </li>
+              {{ end }}
+              </ul>
+            </ul>
           </li>
         </ul>
+
       </div>
     </main>
   </body>
