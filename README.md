@@ -6,7 +6,7 @@
 
 ## About
 
-HTML・SCSS・JS のコーディングを爆速化・省エネ化するフロントエンド環境。
+HTML・SCSS・JavaScript のコーディングを爆速化・省エネ化するフロントエンド環境。
 
 ## How to use
 
@@ -96,6 +96,7 @@ $ npm run build
 - [x] JavaScript フレームワーク風の Hugo 設定
 - [x] ページ一覧の自動生成
 - [x] ページ一覧での進捗状況表示
+- [x] 下書き機能
 - [x] CSS 設定
 - [x] CSS 結合と Minify
 - [x] Netlify デモのビルド
