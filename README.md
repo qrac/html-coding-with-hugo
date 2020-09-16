@@ -89,7 +89,7 @@ $ npm run build
   - [Create Your Own Shortcodes](https://gohugo.io/templates/shortcode-templates/)
   - [Partial Templates](https://gohugo.io/templates/partials/)
 
-※このリポジトリは、コンフィグでディレクトリ構成を JS フレームワーク（Next・Nuxt・Gatsby）ライクにカスタマイズしています。Hugo ドキュメントを読む場合にはディレクトリ名が異なるので注意してください。
+※このリポジトリは、コンフィグでディレクトリ構成を JavaScript フレームワーク（Next・Nuxt・Gatsby）風にカスタマイズしています。Hugo ドキュメントを読む場合にはディレクトリ名が異なるので注意してください。
 
 ## Roadmap
 
