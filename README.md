@@ -19,10 +19,18 @@ $ brew install hugo
 ### 2. Clone project
 
 ```bash
+$ mkdir myproject
+$ cd ./myproject
 $ git clone --depth 1 https://github.com/qrac/html-coding-with-hugo.git && cd html-coding-with-hugo && rm -rf ./.git ./README.md && mv * .[^\.]* ../ && cd ../ && rm -rf ./html-coding-with-hugo
 ```
 
-### 3. Create pages
+### 3. Start server
+
+```bash
+$ npm run dev
+```
+
+### 4. Create pages
 
 `src/pages`
 
@@ -44,7 +52,7 @@ progress: 0
 | `draft`    | `false` or `true`       | `true` にするとビルドから除外  |
 | `progress` | 数字で `0` 〜 `3`       | ページ一覧で進捗状況を表示     |
 
-### 4. Create components
+### 5. Create components
 
 #### Default
 
@@ -57,6 +65,18 @@ progress: 0
 #### Partials (Only components can be used)
 
 `src/components/partials`
+
+### 6. Stop server
+
+```bash
+Press Ctrl+C
+```
+
+### 7. Build
+
+```bash
+$ npm run build
+```
 
 ## Hugo Docs
 
