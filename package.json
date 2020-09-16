@@ -1,11 +1,36 @@
 {
   "name": "html-coding-with-hugo",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "hugo server -D",
     "start": "hugo server",
     "build": "hugo",
     "clean": "rmtrash ./dist ./resources"
   },
-  "license": "MIT"
+  "homepage": "https://github.com/qrac/html-coding-with-hugo",
+  "repository": "https://github.com/qrac/html-coding-with-hugo",
+  "bugs": "https://github.com/qrac/html-coding-with-hugo/issues",
+  "keywords": [
+    "hugo",
+    "coding",
+    "japanese"
+  ],
+  "author": {
+    "name": "Qrac",
+    "url": "https://qrac.jp"
+  },
+  "organization": {
+    "name": "QRANOKO",
+    "url": "https://qranoko.jp"
+  },
+  "browserslist": [
+    "last 1 Chrome versions",
+    "last 1 Edge versions",
+    "last 1 Firefox versions",
+    "last 1 Safari versions",
+    "last 1 iOS versions",
+    "last 1 ChromeAndroid versions",
+    "ie 11"
+  ]
 }
