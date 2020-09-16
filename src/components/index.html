@@ -27,7 +27,7 @@
         <h2 class="dashboard-heading">HTMLページ</h2>
         <ul class="dashboard-list">
           <!-- prettier-ignore -->
-          {{ range sort (where .Site.Pages "Params.type" "page") "File.Path" }}
+          {{ range sort (where .Site.Pages "Params.type" "page") "File.LogicalName" }}
           <li>
             <!-- prettier-ignore -->
             {{ partial "dashboard/link-card.html" (dict "Page" .Page) }}
@@ -38,7 +38,7 @@
         <h2 class="dashboard-heading">コンポーネント</h2>
         <ul class="dashboard-list">
           <!-- prettier-ignore -->
-          {{ range  sort (where .Site.Pages "Params.type" "components") "File.Path" }}
+          {{ range  sort (where .Site.Pages "Params.type" "components") "File.LogicalName" }}
           <li>
             <!-- prettier-ignore -->
             {{ partial "dashboard/link-card.html" (dict "Page" .Page) }}
