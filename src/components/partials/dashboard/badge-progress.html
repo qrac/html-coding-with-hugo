@@ -1,0 +1,9 @@
+{{ if eq .progress 1 }}
+<span class="dashboard-badge is-progress is-1">作業中</span>
+{{ else if eq .progress 2 }}
+<span class="dashboard-badge is-progress is-2">検証中</span>
+{{ else if eq .progress 3 }}
+<span class="dashboard-badge is-progress is-3">完了</span>
+{{ else }}
+<span class="dashboard-badge is-progress">未着手</span>
+{{ end }}

@@ -7,8 +7,7 @@
     <!-- prettier-ignore -->
     {{ $reset := resources.Get "css/reset.css" | resources.ExecuteAsTemplate "reset.css" . }}
     {{ $dashboard := resources.Get "css/dashboard.css" | resources.ExecuteAsTemplate "dashboard.css" . }}
-    {{ $progress := resources.Get "css/progress.css" | resources.ExecuteAsTemplate "progress.css" . }}
-    {{ $styles := slice $reset $dashboard $progress | resources.Concat "index.css" | minify | fingerprint }}
+    {{ $styles := slice $reset $dashboard | resources.Concat "index.css" | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="icon" href="/favicon.png" />
@@ -23,55 +22,45 @@
       <div class="dashboard-main-inner">
         {{ if where .Site.Pages "Params.type" "components" }}
         <h2 class="dashboard-heading">HTMLページ</h2>
-        <ul class="dashboard-links">
+        <ul class="dashboard-link-cards">
           <!-- prettier-ignore -->
           {{ range sort (where .Site.Pages "Params.type" "page") "File.Path" }}
           <li>
-            <a
-              class="dashboard-link {{ if .Draft }}is-draft{{ end }}"
-              href="{{ .Permalink }}"
-            >
-              <div class="dashboard-link-box">
-                <div class="dashboard-link-progress">
-                  <!-- prettier-ignore -->
-                  {{ partial "progress.html" (dict "progress" .Params.progress) }}
-                </div>
-                <p class="dashboard-link-title">{{ .Title }}</p>
-              </div>
-              <div class="dashboard-link-box">
-                <p class="dashboard-link-path">{{ .File.Path }}</p>
-              </div>
-            </a>
+            <!-- prettier-ignore -->
+            {{ partial "dashboard/link-card.html" (dict "Page" .Page) }}
           </li>
           {{ end }}
         </ul>
         {{ end }} {{ if where .Site.Pages "Params.type" "components" }}
         <h2 class="dashboard-heading">コンポーネント</h2>
-        <ul class="dashboard-links">
+        <ul class="dashboard-link-cards">
           <!-- prettier-ignore -->
           {{ range  sort (where .Site.Pages "Params.type" "components") "File.Path" }}
           <li>
-            <a
-              class="dashboard-link {{ if .Draft }}is-draft{{ end }}"
-              href="{{ .Permalink }}"
-            >
-              <div class="dashboard-link-box">
-                <p class="dashboard-link-title">{{ .Title }}</p>
-              </div>
-              <div class="dashboard-link-box">
-                <p class="dashboard-link-path">{{ .File.Path }}</p>
-              </div>
-            </a>
+            <!-- prettier-ignore -->
+            {{ partial "dashboard/link-card.html" (dict "Page" .Page) }}
           </li>
           {{ end }}
         </ul>
         {{ end }}
-        <h2 class="dashboard-heading">進捗状況ラベル</h2>
-        <ul class="dashboard-progress">
-          <li>0: {{ partial "progress.html" (dict "progress" 0) }}</li>
-          <li>1: {{ partial "progress.html" (dict "progress" 1) }}</li>
-          <li>2: {{ partial "progress.html" (dict "progress" 2) }}</li>
-          <li>3: {{ partial "progress.html" (dict "progress" 3) }}</li>
+        <h2 class="dashboard-heading">進捗状況バッジ</h2>
+        <ul class="dashboard-badges">
+          <li>
+            <span class="dashboard-badge-title">0: </span>
+            {{ partial "dashboard/badge-progress.html" (dict "progress" 0) }}
+          </li>
+          <li>
+            <span class="dashboard-badge-title">1: </span>
+            {{ partial "dashboard/badge-progress.html" (dict "progress" 1) }}
+          </li>
+          <li>
+            <span class="dashboard-badge-title">2: </span>
+            {{ partial "dashboard/badge-progress.html" (dict "progress" 2) }}
+          </li>
+          <li>
+            <span class="dashboard-badge-title">3: </span>
+            {{ partial "dashboard/badge-progress.html" (dict "progress" 3) }}
+          </li>
         </ul>
       </div>
     </main>

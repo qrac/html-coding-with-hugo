@@ -1,0 +1,15 @@
+<a
+  class="dashboard-link-card {{ if .Page.Draft }}is-draft{{ end }}"
+  href="{{ .Page.Permalink }}"
+>
+  <div class="dashboard-link-card-box">
+    <div class="dashboard-link-card-progress">
+      <!-- prettier-ignore -->
+      {{ partial "dashboard/badge-progress.html" (dict "progress" .Page.Params.progress) }}
+    </div>
+    <p class="dashboard-link-card-title">{{ .Page.Title }}</p>
+  </div>
+  <div class="dashboard-link-card-box">
+    <p class="dashboard-link-card-path">{{ .Page.File.Path }}</p>
+  </div>
+</a>

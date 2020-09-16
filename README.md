@@ -114,6 +114,7 @@ $ npm run build
 - `components/_default` を `components/layouts` にリネームしたいができない
 - `partials` と `shortcodes` の使い方は似ているが Hugo の仕様上 1 つにまとめられない
 - `partials` や `shortcodes` に多階層のオブジェクトを props として渡せるかは未検証
+- `{{ }}` 関数の改行はサポートされていない
 
 ## License
 
