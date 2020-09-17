@@ -8,5 +8,6 @@
   "assetDir": "./src/assets",
   "staticDir": "./static",
   "publishDir": "./dist",
-  "disableHugoGeneratorInject": true
+  "disableHugoGeneratorInject": true,
+  "uglyURLs": true
 }
