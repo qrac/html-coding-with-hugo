@@ -103,7 +103,7 @@ $ npm run build
 - [x] Netlify デモのビルド
 - [x] SCSS 設定
 - [ ] PostCSS 設定（Autoprefixer など）
-- [ ] node_modules からの SCSS ライブラリ読み込み
+- [x] node_modules からの SCSS ライブラリ読み込み
 - [ ] JavaScript 設定
 - [ ] Babel 設定
 - [ ] node_modules からの JavaScript ライブラリ読み込み
