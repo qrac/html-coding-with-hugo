@@ -7,5 +7,6 @@
   "contentDir": "./src/pages",
   "assetDir": "./src/assets",
   "staticDir": "./static",
-  "publishDir": "./dist"
+  "publishDir": "./dist",
+  "disableHugoGeneratorInject": true
 }
