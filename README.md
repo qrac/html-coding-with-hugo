@@ -23,6 +23,7 @@ HTML・SCSS・JavaScript のコーディングを爆速化・省エネ化する�
 - node_modules からの ライブラリ読み込み
 - ソースコードの Minify
 - リサイズ画像生成
+- ネットワーク内の検証機からアクセス
 
 ## How to use
 
