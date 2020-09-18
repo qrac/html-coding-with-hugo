@@ -114,6 +114,7 @@ $ npm run build
   - [Create Your Own Shortcodes](https://gohugo.io/templates/shortcode-templates/)
   - [Partial Templates](https://gohugo.io/templates/partials/)
   - [Image Processing](https://gohugo.io/content-management/image-processing/)
+  - [hugo server](https://gohugo.io/commands/hugo_server/)
 
 ※このリポジトリは、コンフィグでディレクトリ構成を JavaScript フレームワーク（Next・Nuxt・Gatsby）風にカスタマイズしています。Hugo ドキュメントを読む場合にはディレクトリ名が異なるので注意してください。
 
