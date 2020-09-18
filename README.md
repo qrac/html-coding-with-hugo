@@ -17,6 +17,7 @@ HTML・SCSS・JavaScript のコーディングを爆速化・省エネ化する�
 - ページリストに進捗状況を表示
 - ページリストに担当者名を表示
 - 下書き機能（ページ毎に本番ビルドから除外可能）
+- HTML でテンプレートを書ける
 - CSS / SCSS / PostCSS (Autoprefixer etc.)
 - JavaScript / ESNext / Babel
 - node_modules からの ライブラリ読み込み
