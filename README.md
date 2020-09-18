@@ -104,9 +104,9 @@ $ npm run build
 - [x] SCSS 設定
 - [x] PostCSS 設定（Autoprefixer など）
 - [x] node_modules からの SCSS ライブラリ読み込み
-- [ ] JavaScript 設定
-- [ ] Babel 設定
-- [ ] node_modules からの JavaScript ライブラリ読み込み
+- [x] JavaScript 設定
+- [x] Babel 設定
+- [x] node_modules からの JavaScript ライブラリ読み込み
 - [ ] 画像最適化の設定
 
 ## Unresolved

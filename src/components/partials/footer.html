@@ -1,1 +1,6 @@
 <footer>Footer</footer>
+
+<!-- prettier-ignore -->
+{{ $esnext := resources.Get "js/script.js" | babel | resources.ExecuteAsTemplate "script.js" . }}
+{{ $js := slice $esnext | resources.Concat "js/script.js" | js.Build | minify }}
+<script type="text/javascript" src="{{ $js.Permalink }}" defer></script>
