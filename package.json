@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "hugo server -D",
     "start": "hugo server",
-    "bind": "hugo server --bind 127.0.0.1",
     "build": "hugo --minify",
     "clean": "rmtrash ./dist ./resources"
   },
