@@ -3,12 +3,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ .Title }} - {{ .Site.Title }}</title>
   <!-- prettier-ignore -->
-  {{ $options := (dict "outputStyle" "compressed" "includePaths" (slice "node_modules" "src/assets/scss")) }}
   {{ $vendor := resources.Get "css/vendor.css" | resources.ExecuteAsTemplate "vendor.css" . }}
-  {{ $scss := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "style.scss" . }}
-  {{ $scssTemp := $scss | toCSS $options | resources.PostCSS }}
-  {{ $css := slice $vendor $scssTemp | resources.Concat "css/style.css" | resources.PostCSS | minify }}
+  {{ $css := slice $vendor | resources.Concat "css/vendor.css" | resources.PostCSS | minify }}
+  {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "includePaths" (slice "node_modules")) }}
+  {{ $scss := resources.Get "scss/style.scss" | toCSS $options | resources.PostCSS | minify }}
   <link rel="stylesheet" href="{{ $css.Permalink }}" />
+  <link rel="stylesheet" href="{{ $scss.Permalink }}" />
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
   <link rel="icon" href="/img/favicon.png" />
 </head>
