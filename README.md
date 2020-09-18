@@ -102,7 +102,7 @@ $ npm run build
 - [x] CSS 結合と Minify
 - [x] Netlify デモのビルド
 - [x] SCSS 設定
-- [ ] PostCSS 設定（Autoprefixer など）
+- [x] PostCSS 設定（Autoprefixer など）
 - [x] node_modules からの SCSS ライブラリ読み込み
 - [ ] JavaScript 設定
 - [ ] Babel 設定

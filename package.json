@@ -35,5 +35,12 @@
   ],
   "dependencies": {
     "shitajicss": "^5.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.0",
+    "postcss-cli": "^7.1.2",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-sort-media-queries": "^1.7.26"
   }
 }

@@ -2,4 +2,10 @@
 // Style
 //----------------------------------------------------
 
+// Test: Import node_modules
 @import "shitajicss/src/scss/_shitaji.scss";
+
+// Test: Import autoprefixer
+.autoprefixer-test-box-decoration-break {
+  box-decoration-break: clone;
+}
