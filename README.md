@@ -124,7 +124,7 @@ $ npm run build
 - `partials` と `shortcodes` の使い方は似ているが Hugo の仕様上 1 つにまとめられない
 - `partials` や `shortcodes` に多階層のオブジェクトを props として渡せるかは未検証
 - ビルド HTML は Minify のみ可能で、Pretty なコードを納品するためには別途処理が必要
-- 画像最適化で可能なのは JPEG 品質程度で、多くの設定はリサイズ生成の仕様
+- 画像最適化で可能なのは JPEG 品質程度で、多くの設定はリサイズ用（遅いので非推奨）
 
 ## License
 
