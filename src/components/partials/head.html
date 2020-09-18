@@ -4,7 +4,7 @@
   <title>{{ .Title }} - {{ .Site.Title }}</title>
   <!-- prettier-ignore -->
   {{ $scss := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "style.scss" . }}
-  {{ $options := (dict "includePaths" (slice "node_modules")) }}
+  {{ $options := (dict "outputStyle" "compressed" "includePaths" (slice "node_modules" "src/assets/scss")) }}
   {{ $css := slice $scss | resources.Concat "css/style.css" | toCSS $options | resources.PostCSS | minify }}
   <link rel="stylesheet" href="{{ $css.Permalink }}" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
