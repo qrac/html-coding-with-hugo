@@ -36,6 +36,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "object-fit-images": "^3.2.4",
     "shitajicss": "^5.1.0"
   },
   "devDependencies": {

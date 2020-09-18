@@ -1,7 +1,7 @@
 //----------------------------------------------------
-// Style
+// Object Fit Images
 //----------------------------------------------------
 
-@import "styles/reset";
-@import "styles/text";
-@import "styles/cover";
+import objectFitImages from "object-fit-images";
+
+objectFitImages();
