@@ -1,12 +1,27 @@
 # HTML Coding with Hugo
 
-## Demo
+![Netlify Status](https://api.netlify.com/api/v1/badges/41b3544d-3776-422b-9227-e8af3d402cb5/deploy-status)
 
-- https://html-coding-with-hugo.netlify.app/
+Demo: https://html-coding-with-hugo.netlify.app/
 
 ## About
 
 HTML・SCSS・JavaScript のコーディングを爆速化・省エネ化するフロントエンド環境。
+
+## Feature
+
+- ビルド・ライブリロードが爆速で省エネ
+- 開発環境は JavaScript フレームワーク風の構成
+- 納品コードは gulp コーディング風に出力
+- ページリストの自動生成
+- ページリストに進捗状況を表示
+- ページリストに担当者名を表示
+- 下書き機能（ページ毎に本番ビルドから除外可能）
+- CSS / SCSS / PostCSS (Autoprefixer etc.)
+- JavaScript / ESNext / Babel
+- node_modules からの ライブラリ読み込み
+- ソースコードの Minify
+- リサイズ画像生成
 
 ## How to use
 
@@ -37,20 +52,22 @@ $ npm run dev
 #### Frontmatter
 
 ```yaml
-title: "トップページ"
+title: "ページタイトル"
 layout: "single"
 type: "page"
 draft: false
 progress: 0
+assignee: "担当者名"
 ```
 
 | キー       | 値の例                      | 意味                           |
 | ---------- | --------------------------- | ------------------------------ |
-| `title`    | ページタイトル              | ページ一覧にも自動出力         |
+| `title`    | `"ページタイトル"`          | ページ一覧にも自動出力         |
 | `layout`   | `"single"` etc.             | ページをラップするテンプレート |
 | `type`     | `"pages"` or `"components"` | ページ一覧での分類に使用       |
 | `draft`    | `false` or `true`           | `true` にするとビルドから除外  |
 | `progress` | 数字で `0` 〜 `3`           | ページ一覧で進捗状況を表示     |
+| `assignee` | `"担当者名"`                | ページ一覧で担当者名を表示     |
 
 ### 5. Create components
 
@@ -88,34 +105,19 @@ $ npm run build
   - [Shortcodes](https://gohugo.io/content-management/shortcodes/)
   - [Create Your Own Shortcodes](https://gohugo.io/templates/shortcode-templates/)
   - [Partial Templates](https://gohugo.io/templates/partials/)
+  - [Image Processing](https://gohugo.io/content-management/image-processing/)
 
 ※このリポジトリは、コンフィグでディレクトリ構成を JavaScript フレームワーク（Next・Nuxt・Gatsby）風にカスタマイズしています。Hugo ドキュメントを読む場合にはディレクトリ名が異なるので注意してください。
 
-## Roadmap
+## Unresolved (Hugo v0.74.3)
 
-- [x] JavaScript フレームワーク風の Hugo 設定
-- [x] ページ一覧の自動生成
-- [x] ページ一覧での進捗状況表示
-- [x] ページ一覧での担当者表示
-- [x] 下書き機能
-- [x] CSS 設定
-- [x] CSS 結合と Minify
-- [x] Netlify デモのビルド
-- [x] SCSS 設定
-- [x] PostCSS 設定（Autoprefixer など）
-- [x] node_modules からの SCSS ライブラリ読み込み
-- [x] JavaScript 設定
-- [x] Babel 設定
-- [x] node_modules からの JavaScript ライブラリ読み込み
-- [x] 画像最適化の設定
-
-## Unresolved
-
+- `{{ }}` 関数の改行はサポートされていない
 - `pages` は Hugo で言う `content` であり、`partials` を呼び出したり関数を使ったりできない
 - `components/_default` を `components/layouts` にリネームしたいができない
 - `partials` と `shortcodes` の使い方は似ているが Hugo の仕様上 1 つにまとめられない
 - `partials` や `shortcodes` に多階層のオブジェクトを props として渡せるかは未検証
-- `{{ }}` 関数の改行はサポートされていない
+- ビルド HTML は Minify のみ可能で、Pretty なコードを納品するためには別途処理が必要
+- 画像最適化で可能なのは JPEG 品質程度で、多くの設定はリサイズ生成の仕様
 
 ## License
 
