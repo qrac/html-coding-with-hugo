@@ -40,13 +40,19 @@ $ cd ./myproject
 $ git clone --depth 1 https://github.com/qrac/html-coding-with-hugo.git && cd html-coding-with-hugo && rm -rf ./.git ./README.md && mv * .[^\.]* ../ && cd ../ && rm -rf ./html-coding-with-hugo
 ```
 
-### 3. Start server
+### 3. Install npm
+
+```bash
+$ npm install
+```
+
+### 4. Start live server
 
 ```bash
 $ npm run dev
 ```
 
-### 4. Create pages
+### 5. Create pages
 
 `src/pages`
 
@@ -70,7 +76,7 @@ assignee: "担当者名"
 | `progress` | 数字で `0` 〜 `3`           | ページ一覧で進捗状況を表示     |
 | `assignee` | `"担当者名"`                | ページ一覧で担当者名を表示     |
 
-### 5. Create components
+### 6. Create components
 
 #### Default
 
@@ -84,13 +90,13 @@ assignee: "担当者名"
 
 `src/components/partials`
 
-### 6. Stop server
+### 7. Stop live server
 
 ```bash
 Press Ctrl+C
 ```
 
-### 7. Build
+### 8. Build
 
 ```bash
 $ npm run build
