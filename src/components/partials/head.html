@@ -7,6 +7,6 @@
   {{ $options := (dict "outputStyle" "compressed" "includePaths" (slice "node_modules" "src/assets/scss")) }}
   {{ $css := slice $scss | resources.Concat "css/style.css" | toCSS $options | resources.PostCSS | minify }}
   <link rel="stylesheet" href="{{ $css.Permalink }}" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+  <link rel="icon" href="/img/favicon.png" />
 </head>

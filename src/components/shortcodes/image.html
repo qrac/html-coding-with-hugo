@@ -1,0 +1,4 @@
+<!-- prettier-ignore -->
+{{ $src := resources.Get (.Get "src") }}
+{{ $alt := .Get "alt" }}
+<img src="{{ $src.RelPermalink }}" alt="{{ $alt }}" />

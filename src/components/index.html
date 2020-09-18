@@ -9,8 +9,8 @@
     {{ $dashboard := resources.Get "css/dashboard.css" | resources.ExecuteAsTemplate "dashboard.css" . }}
     {{ $css := slice $reset $dashboard | resources.Concat "css/index.css" | resources.PostCSS | minify }}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <link rel="icon" href="/img/favicon.png" />
   </head>
   <body class="dashboard">
 

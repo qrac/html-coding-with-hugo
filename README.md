@@ -107,7 +107,7 @@ $ npm run build
 - [x] JavaScript 設定
 - [x] Babel 設定
 - [x] node_modules からの JavaScript ライブラリ読み込み
-- [ ] 画像最適化の設定
+- [x] 画像最適化の設定
 
 ## Unresolved
 
