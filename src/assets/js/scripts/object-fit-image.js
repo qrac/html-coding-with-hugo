@@ -4,4 +4,6 @@
 
 import objectFitImages from "object-fit-images";
 
-objectFitImages();
+const fixImages = document.querySelectorAll("img.object-fit-cover");
+
+objectFitImages(fixImages);
