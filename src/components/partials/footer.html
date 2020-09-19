@@ -1,4 +1,8 @@
-<footer>Footer</footer>
+<footer class="footer">
+  <div class="footer-inner">
+    <p class="footer-copylight">© QRANOKO 2020</p>
+  </div>
+</footer>
 
 <!-- prettier-ignore -->
 {{ $js := resources.Get "js/script.js" | js.Build | babel | minify }}
