@@ -118,13 +118,14 @@ $ npm run build
 
 ※このリポジトリは、コンフィグでディレクトリ構成を JavaScript フレームワーク（Next・Nuxt・Gatsby）風にカスタマイズしています。Hugo ドキュメントを読む場合にはディレクトリ名が異なるので注意してください。
 
-## Unresolved (Hugo v0.74.3)
+## Unresolved (Hugo v0.75.1)
 
-- `{{ }}` 関数の改行はサポートされていない
 - `pages` は Hugo で言う `content` であり、`partials` を呼び出したり関数を使ったりできない
 - `components/_default` を `components/layouts` にリネームしたいができない
 - `partials` と `shortcodes` の使い方は似ているが Hugo の仕様上 1 つにまとめられない
 - `partials` や `shortcodes` に多階層のオブジェクトを props として渡せるかは未検証
+- `{{ }}` 関数の改行はサポートされていないので、Prettier がエラーを招かないか注意する
+- `{{ }}` だけを改行しない Prettier 設定は難しく、Ignore を要所に書き足す方が現実的
 - ビルド HTML は Minify のみ可能で、Pretty なコードを納品するためには別途処理が必要
 - SCSS の仕様通り、CSS インポートはできず、テンプレ化で無理を通しても弊害が出る
 - PostCSS をビルドに含めるとサーバーの起動が 1 秒程遅くなる
