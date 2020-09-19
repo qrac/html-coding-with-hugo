@@ -1,0 +1,19 @@
+//----------------------------------------------------
+// Body
+//----------------------------------------------------
+
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.body > :not(.main) {
+  flex: none;
+  width: 100%;
+}
+
+.body > .main {
+  flex: 1 0 auto;
+  width: 100%;
+}
