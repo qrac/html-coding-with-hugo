@@ -1,5 +1,7 @@
 {{ $src := .Get "src" }}
 {{ $alt := .Get "alt" }}
+{{ printf "<!-- + Cover -->" | safeHTML }}
 <figure class="cover">
   <img class="object-fit-cover" src="{{ $src }}" alt="{{ $alt }}" />
 </figure>
+{{ printf "<!-- - Cover -->" | safeHTML }}

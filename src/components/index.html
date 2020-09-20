@@ -4,39 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta property="format-detection" content="telephone=no, email=no, address=no" />
+    <meta
+      property="format-detection"
+      content="telephone=no, email=no, address=no"
+    />
+
     <title>{{ .Site.Title }}</title>
-    {{ if .Site.Params.description }}
-    <meta property="description" content="{{ .Site.Params.description }}" />
-    {{ end }}
+    {{- if .Site.Params.description -}}
+      <meta property="description" content="{{ .Site.Params.description }}" />
+    {{- end -}}
     <meta property="og:title" content="{{ .Site.Title }}" />
-    {{ if .Site.Params.description }}
-    <meta property="og:description" content="{{ .Site.Params.description }}" />
-    {{ end }}
+    {{- if .Site.Params.description -}}
+      <meta
+        property="og:description"
+        content="{{ .Site.Params.description }}"
+      />
+    {{- end -}}
     <meta property="og:url" content="{{ .Site.BaseURL }}" />
-    {{ if .Site.Params.ogImage }}
-    <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.ogImage }}" />
-    {{ end }}
+    {{- if .Site.Params.ogImage -}}
+      <meta
+        property="og:image"
+        content="{{ .Site.BaseURL }}{{ .Site.Params.ogImage }}"
+      />
+    {{- end -}}
     <meta property="og:site_name" content="{{ .Site.Title }}" />
     <meta property="og:type" content="website" />
-    {{ if .Site.Params.twitterCard }}
-    <meta name="twitter:card" content="{{ .Site.Params.twitterCard }}" />
-    {{ end }}
-    {{ if .Site.Params.twitterId }}
-    <meta name="twitter:creator" content="@{{ .Site.Params.twitterId }}" />
-    {{ end }}
-    {{ if .Site.Params.noindex }}
-    <meta name="robots" content="noindex, nofollow" />
-    {{ end }}
-    {{ $reset := resources.Get "css/reset.css" | resources.ExecuteAsTemplate "reset.css" . }}
-    {{ $dashboard := resources.Get "css/dashboard.css" | resources.ExecuteAsTemplate "dashboard.css" . }}
-    {{ $css := slice $reset $dashboard | resources.Concat "css/index.css" | resources.PostCSS | minify }}
+    {{- if .Site.Params.twitterCard -}}
+      <meta name="twitter:card" content="{{ .Site.Params.twitterCard }}" />
+    {{- end -}}
+    {{- if .Site.Params.twitterId -}}
+      <meta name="twitter:creator" content="@{{ .Site.Params.twitterId }}" />
+    {{- end -}}
+    {{- if .Site.Params.noindex -}}
+      <meta name="robots" content="noindex, nofollow" />
+    {{- end -}}
+
+    {{- $reset := resources.Get "css/reset.css" | resources.ExecuteAsTemplate "reset.css" . -}}
+    {{- $dashboard := resources.Get "css/dashboard.css" | resources.ExecuteAsTemplate "dashboard.css" . -}}
+    {{- $css := slice $reset $dashboard | resources.Concat "css/index.css" | resources.PostCSS | minify -}}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" />
+
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
     <link rel="icon" href="/img/favicon.png" />
   </head>
   <body class="dashboard">
-
     <header class="dashboard-header">
       <div class="dashboard-header-inner">
         <h1 class="dashboard-header-title">{{ .Site.Title }}</h1>
@@ -45,44 +56,41 @@
 
     <main class="dashboard-main">
       <div class="dashboard-main-inner">
+        {{- if where .Site.Pages "Params.type" "components" -}}
+          <h2 class="dashboard-heading">HTMLページ</h2>
+          <ul class="dashboard-list">
+            {{- range sort (where .Site.Pages "Params.type" "page") "File.LogicalName" -}}
+              <li>
+                {{ partial "dashboard/link-card.html" (dict "Page" .Page) -}}
+              </li>
+            {{- end -}}
+          </ul>
+        {{- end -}}
 
-        {{ if where .Site.Pages "Params.type" "components" }}
-        <h2 class="dashboard-heading">HTMLページ</h2>
-        <ul class="dashboard-list">
-          {{ range sort (where .Site.Pages "Params.type" "page") "File.LogicalName" }}
-          <li>
-            {{ partial "dashboard/link-card.html" (dict "Page" .Page) }}
-          </li>
-          {{ end }}
-        </ul>
-        {{ end }}
-
-        {{ if where .Site.Pages "Params.type" "components" }}
-        <h2 class="dashboard-heading">コンポーネント</h2>
-        <ul class="dashboard-list">
-          {{ range sort (where .Site.Pages "Params.type" "components") "File.LogicalName" }}
-          <li>
-            {{ partial "dashboard/link-card.html" (dict "Page" .Page) }}
-          </li>
-          {{ end }}
-        </ul>
-        {{ end }}
+        {{- if where .Site.Pages "Params.type" "components" -}}
+          <h2 class="dashboard-heading">コンポーネント</h2>
+          <ul class="dashboard-list">
+            {{- range sort (where .Site.Pages "Params.type" "components") "File.LogicalName" -}}
+              <li>
+                {{ partial "dashboard/link-card.html" (dict "Page" .Page) -}}
+              </li>
+            {{- end -}}
+          </ul>
+        {{- end -}}
 
         <h2 class="dashboard-heading">進捗状況バッジ</h2>
         <ul class="dashboard-list">
           <li>
             <ul class="dashboard-badges">
-              {{ range $index, $val := seq 5 }}
-              <li>
-                <span class="dashboard-badge-title">{{ $index }}: </span>
-                {{ partial "dashboard/badge-progress.html" (dict "progress" $index) }}
-              </li>
-              {{ end }}
-              </ul>
+              {{- range $index, $val := seq 5 -}}
+                <li>
+                  <span class="dashboard-badge-title">{{ $index }}: </span>
+                  {{- partial "dashboard/badge-progress.html" (dict "progress" $index) -}}
+                </li>
+              {{- end -}}
             </ul>
           </li>
         </ul>
-
       </div>
     </main>
   </body>

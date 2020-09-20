@@ -1,10 +1,14 @@
 {{ if .Site.Params.copylight }}
+  {{ printf "<!-- + Footer -->" | safeHTML }}
   <footer class="footer">
     <div class="footer-inner">
       <p class="footer-copylight">{{ .Site.Params.copylight }}</p>
     </div>
   </footer>
+  {{ printf "<!-- - Footer -->" | safeHTML }}
 {{ end }}
 
-{{ $js := resources.Get "js/script.js" | js.Build | babel | minify }}
+{{ printf "<!-- + JavaScript -->" | safeHTML }}
+{{- $js := resources.Get "js/script.js" | js.Build | babel | minify -}}
 <script type="text/javascript" src="{{ $js.Permalink }}" defer></script>
+{{ printf "<!-- - JavaScript -->" | safeHTML }}

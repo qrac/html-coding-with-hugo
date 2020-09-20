@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "hugo server -D",
     "start": "hugo server",
-    "build": "hugo --minify",
+    "build": "npm run build:hugo && npm run build:beautify",
+    "build:hugo": "hugo",
+    "build:beautify": "js-beautify -f ./dist/*.html -s 2 -m 1",
     "clean": "rmtrash ./dist ./resources"
   },
   "homepage": "https://github.com/qrac/html-coding-with-hugo",
@@ -44,6 +46,7 @@
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "autoprefixer": "^10.0.0",
+    "js-beautify": "^1.13.0",
     "postcss-cli": "^7.1.2",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-import": "^12.0.1",
