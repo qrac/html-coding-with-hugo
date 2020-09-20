@@ -140,7 +140,7 @@ $ npm run build
 
 ## License
 
-- MIT
+- CC0 1.0 Public Domain
 
 ## Credit
 

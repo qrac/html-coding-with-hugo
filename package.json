@@ -1,7 +1,7 @@
 {
   "name": "html-coding-with-hugo",
   "private": true,
-  "license": "MIT",
+  "license": "CC0-1.0",
   "scripts": {
     "dev": "hugo server -D",
     "start": "hugo server",
