@@ -4,16 +4,16 @@
 >
   <ul class="dashboard-link-card-badges">
     <li>
-      {{- partial "dashboard/badge-progress.html" (dict "progress" .Page.Params.progress) -}}
+      {{ partial "dashboard/badge-progress.html" (dict "progress" .Page.Params.progress) }}
     </li>
     <li>
-      {{- partial "dashboard/badge-assignee.html" (dict "assignee" .Page.Params.assignee) -}}
+      {{ partial "dashboard/badge-assignee.html" (dict "assignee" .Page.Params.assignee) }}
     </li>
   </ul>
   <div class="dashboard-link-card-texts">
-    <p class="dashboard-link-card-text is-title">{{- .Page.Title -}}</p>
+    <p class="dashboard-link-card-text is-title">{{ .Page.Title }}</p>
     <p class="dashboard-link-card-text is-path">
-      {{- .Page.File.LogicalName -}}
+      {{ .Page.File.LogicalName }}
     </p>
   </div>
 </a>

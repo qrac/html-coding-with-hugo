@@ -132,7 +132,7 @@ $ npm run build
 - `components/_default` を `components/layouts` にリネームしたいができない
 - `partials` と `shortcodes` の使い方は似ているが Hugo の仕様上 1 つにまとめられない
 - `partials` や `shortcodes` に多階層のオブジェクトを props として渡せるかは未検証
-- HTML は Minify のみ可能で、コメントを残せないため js-beautify を仕上げに使う
+- HTML は Minify のみ可能で、コメントも残せないため js-beautify を仕上げに使う
 - SCSS は仕様通り CSS インポートができず、テンプレ化で無理を通しても弊害が出る
 - PostCSS をビルドに含めると、最初のビルド処理が 1 秒程遅くなる
 - 画像処理で可能なのは JPEG 品質程度で、多くの設定はリサイズ用（遅いので非推奨）

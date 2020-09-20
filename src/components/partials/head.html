@@ -9,40 +9,40 @@
 
   {{ printf "<!-- + SEO -->" | safeHTML }}
   <title>{{ .Page.Title }} - {{ .Site.Title }}</title>
-  {{- if .Page.Description -}}
+  {{ if .Page.Description }}
     <meta property="description" content="{{ .Page.Description }}" />
-  {{- end -}}
+  {{ end }}
   <meta property="og:title" content="{{ .Page.Title }}" />
-  {{- if .Page.Description -}}
+  {{ if .Page.Description }}
     <meta property="og:description" content="{{ .Page.Description }}" />
-  {{- end -}}
+  {{ end }}
   <meta property="og:url" content="{{ .Page.Permalink }}" />
-  {{- if .Page.Params.ogImage -}}
+  {{ if .Page.Params.ogImage }}
     <meta
       property="og:image"
       content="{{ .Site.BaseURL }}{{ .Page.Params.ogImage }}"
     />
-  {{- end -}}
+  {{ end }}
   <meta property="og:site_name" content="{{ .Site.Title }}" />
-  {{- if .Page.Params.ogType -}}
+  {{ if .Page.Params.ogType }}
     <meta property="og:type" content="{{ .Page.Params.ogType }}" />
-  {{- end -}}
-  {{- if .Site.Params.twitterCard -}}
+  {{ end }}
+  {{ if .Site.Params.twitterCard }}
     <meta name="twitter:card" content="{{ .Site.Params.twitterCard }}" />
-  {{- end -}}
-  {{- if .Site.Params.twitterId -}}
+  {{ end }}
+  {{ if .Site.Params.twitterId }}
     <meta name="twitter:creator" content="@{{ .Site.Params.twitterId }}" />
-  {{- end -}}
-  {{- if .Page.Params.noindex -}}
+  {{ end }}
+  {{ if .Page.Params.noindex }}
     <meta name="robots" content="noindex, nofollow" />
-  {{- end }}
+  {{ end }}
   {{ printf "<!-- - SEO -->" | safeHTML }}
 
   {{ printf "<!-- + Stylesheet -->" | safeHTML }}
-  {{- $vendor := resources.Get "css/vendor.css" | resources.ExecuteAsTemplate "vendor.css" . -}}
-  {{- $css := slice $vendor | resources.Concat "css/vendor.css" | resources.PostCSS | minify -}}
-  {{- $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "includePaths" (slice "node_modules")) -}}
-  {{- $scss := resources.Get "scss/style.scss" | toCSS $options | resources.PostCSS | minify -}}
+  {{ $vendor := resources.Get "css/vendor.css" | resources.ExecuteAsTemplate "vendor.css" . }}
+  {{ $css := slice $vendor | resources.Concat "css/vendor.css" | resources.PostCSS | minify }}
+  {{ $options := (dict "targetPath" "css/style.css" "outputStyle" "compressed" "includePaths" (slice "node_modules")) }}
+  {{ $scss := resources.Get "scss/style.scss" | toCSS $options | resources.PostCSS | minify }}
   <link rel="stylesheet" href="{{ $css.Permalink }}" />
   <link rel="stylesheet" href="{{ $scss.Permalink }}" />
   {{ printf "<!-- - Stylesheet -->" | safeHTML }}

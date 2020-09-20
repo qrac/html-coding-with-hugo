@@ -4,7 +4,7 @@
   <body class="body">
     {{ partial "header.html" . }}
     {{ printf "<!-- + Main -->" | safeHTML }}
-    {{- .Content -}}
+    {{ .Content }}
     {{ printf "<!-- - Main -->" | safeHTML }}
     {{ partial "footer.html" . }}
   </body>

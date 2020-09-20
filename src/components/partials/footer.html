@@ -9,6 +9,6 @@
 {{ end }}
 
 {{ printf "<!-- + JavaScript -->" | safeHTML }}
-{{- $js := resources.Get "js/script.js" | js.Build | babel | minify -}}
+{{ $js := resources.Get "js/script.js" | js.Build | babel | minify }}
 <script type="text/javascript" src="{{ $js.Permalink }}" defer></script>
 {{ printf "<!-- - JavaScript -->" | safeHTML }}

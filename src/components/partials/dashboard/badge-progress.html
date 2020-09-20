@@ -1,11 +1,11 @@
-{{- if eq .progress 1 -}}
+{{ if eq .progress 1 }}
   <span class="dashboard-badge is-progress is-1">作業中</span>
-  {{- else if eq .progress 2 -}}
+  {{ else if eq .progress 2 }}
   <span class="dashboard-badge is-progress is-2">検証中</span>
-  {{- else if eq .progress 3 -}}
+  {{ else if eq .progress 3 }}
   <span class="dashboard-badge is-progress is-3">提出済</span>
-  {{- else if eq .progress 4 -}}
+  {{ else if eq .progress 4 }}
   <span class="dashboard-badge is-progress is-4">完了</span>
-  {{- else -}}
+  {{ else }}
   <span class="dashboard-badge is-progress">未着手</span>
-{{- end -}}
+{{ end }}
