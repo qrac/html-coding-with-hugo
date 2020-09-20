@@ -39,7 +39,7 @@
         {{ if where .Site.Pages "Params.type" "components" }}
         <h2 class="dashboard-heading">コンポーネント</h2>
         <ul class="dashboard-list">
-          {{ range  sort (where .Site.Pages "Params.type" "components") "File.LogicalName" }}
+          {{ range sort (where .Site.Pages "Params.type" "components") "File.LogicalName" }}
           <li>
             {{ partial "dashboard/link-card.html" (dict "Page" .Page) }}
           </li>
