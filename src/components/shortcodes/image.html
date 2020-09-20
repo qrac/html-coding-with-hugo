@@ -1,15 +1,14 @@
-<!-- prettier-ignore -->
 {{ $original := resources.Get (.Get "src") }}
 {{ $alt := .Get "alt" }}
 {{ $process := .Get "process" }}
 {{ $size := .Get "size" }}
-{{ if eq $process "Fit"}}
+{{ if eq $process "Fit" }}
   {{ .Scratch.Set "image" ($original.Fit $size) }}
-{{ else if eq $process "Resize"}}
+  {{ else if eq $process "Resize" }}
   {{ .Scratch.Set "image" ($original.Resize $size) }}
-{{ else if eq $process "Fill"}}
+  {{ else if eq $process "Fill" }}
   {{ .Scratch.Set "image" ($original.Fill $size) }}
-{{ else }}
+  {{ else }}
   {{ .Scratch.Set "image" $original }}
 {{ end }}
 {{ $image := .Scratch.Get "image" }}

@@ -17,7 +17,7 @@ HTML・SCSS・JavaScript のコーディングを爆速化・省エネ化する�
 - ページリストに進捗状況を表示
 - ページリストに担当者名を表示
 - 下書き機能（ページ毎に本番ビルドから除外可能）
-- HTML でテンプレートを書ける
+- HTML でテンプレートを書ける（Prettier 対応）
 - CSS / SCSS / PostCSS (Autoprefixer etc.)
 - JavaScript / ESNext / Babel
 - node_modules からの ライブラリ読み込み
@@ -131,7 +131,6 @@ $ npm run build
 - `partials` と `shortcodes` の使い方は似ているが Hugo の仕様上 1 つにまとめられない
 - `partials` や `shortcodes` に多階層のオブジェクトを props として渡せるかは未検証
 - `{{ }}` 関数の改行はサポートされていないので、Prettier がエラーを招かないか注意する
-- `{{ }}` だけを改行しない Prettier 設定は難しく、Ignore を要所に書き足す方が現実的
 - ビルド HTML は Minify のみ可能で、Pretty なコードを納品するためには別途処理が必要
 - SCSS は仕様通り CSS インポートができず、テンプレ化で無理を通しても弊害が出る
 - PostCSS をビルドに含めるとサーバーの起動が 1 秒程遅くなる

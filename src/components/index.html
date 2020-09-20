@@ -6,7 +6,6 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta property="format-detection" content="telephone=no, email=no, address=no" />
     <title>{{ .Site.Title }}</title>
-    <!-- prettier-ignore -->
     {{ if .Site.Params.description }}
     <meta property="description" content="{{ .Site.Params.description }}" />
     {{ end }}
@@ -29,7 +28,6 @@
     {{ if .Site.Params.noindex }}
     <meta name="robots" content="noindex, nofollow" />
     {{ end }}
-    <!-- prettier-ignore -->
     {{ $reset := resources.Get "css/reset.css" | resources.ExecuteAsTemplate "reset.css" . }}
     {{ $dashboard := resources.Get "css/dashboard.css" | resources.ExecuteAsTemplate "dashboard.css" . }}
     {{ $css := slice $reset $dashboard | resources.Concat "css/index.css" | resources.PostCSS | minify }}
@@ -48,7 +46,6 @@
     <main class="dashboard-main">
       <div class="dashboard-main-inner">
 
-        <!-- prettier-ignore -->
         {{ if where .Site.Pages "Params.type" "components" }}
         <h2 class="dashboard-heading">HTMLページ</h2>
         <ul class="dashboard-list">
@@ -60,7 +57,6 @@
         </ul>
         {{ end }}
 
-        <!-- prettier-ignore -->
         {{ if where .Site.Pages "Params.type" "components" }}
         <h2 class="dashboard-heading">コンポーネント</h2>
         <ul class="dashboard-list">
