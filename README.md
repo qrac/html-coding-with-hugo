@@ -59,6 +59,10 @@ $ npm run dev
 
 ```yaml
 title: "ページタイトル"
+description: "ページのディスクリプション"
+ogImage: "img/ogp.jpg"
+ogType: "website"
+noindex: false
 layout: "single"
 type: "page"
 draft: false
@@ -66,14 +70,18 @@ progress: 0
 assignee: "担当者名"
 ```
 
-| キー       | 値の型    | 値の例                      | 意味                           |
-| ---------- | --------- | --------------------------- | ------------------------------ |
-| `title`    | `string`  | `"ページタイトル"`          | ページ一覧にも自動出力         |
-| `layout`   | `string`  | `"single"` etc.             | ページをラップするテンプレート |
-| `type`     | `string`  | `"pages"` or `"components"` | ページ一覧での分類に使用       |
-| `draft`    | `boolean` | `false` or `true`           | `true` にするとビルドから除外  |
-| `progress` | `number`  | 数字で `0` 〜 `4`           | ページ一覧で進捗状況を表示     |
-| `assignee` | `string`  | `"担当者名"`                | ページ一覧で担当者名を表示     |
+| Key           | Type      | Value                          | Description                               |
+| ------------- | --------- | ------------------------------ | ----------------------------------------- |
+| `title`       | `string`  | `"ページタイトル"`             | ページタイトル（一覧にも自動出力）        |
+| `description` | `string`  | `"ページのディスクリプション"` | ページのディスクリプション                |
+| `ogImage`     | `string`  | `"img/ogp.jpg"`                | Open Graph Image へのパス（BaseURL 配下） |
+| `ogType`      | `string`  | `"website"` or `"article"`     | Open Graph Type を指定                    |
+| `noindex`     | `boolean` | `false` or `true`              | `true` にすると noindex タグを付与        |
+| `layout`      | `string`  | `"single"` etc.                | ページをラップするテンプレート            |
+| `type`        | `string`  | `"pages"` or `"components"`    | ページ一覧での分類に使用                  |
+| `draft`       | `boolean` | `false` or `true`              | `true` にするとビルドから除外             |
+| `progress`    | `number`  | `0` 〜 `4`                     | ページ一覧で進捗状況を表示                |
+| `assignee`    | `string`  | `"担当者名"`                   | ページ一覧で担当者名を表示                |
 
 ### 6. Create components
 

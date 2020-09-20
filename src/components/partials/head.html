@@ -1,7 +1,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ .Title }} - {{ .Site.Title }}</title>
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta
+    property="format-detection"
+    content="telephone=no, email=no, address=no"
+  />
+  <title>{{ .Page.Title }} - {{ .Site.Title }}</title>
+  <!-- prettier-ignore -->
+  {{ if .Page.Description }}
+  <meta property="description" content="{{ .Page.Description }}" />
+  {{ end }}
+  <meta property="og:title" content="{{ .Page.Title }}" />
+  {{ if .Page.Description }}
+  <meta property="og:description" content="{{ .Page.Description }}" />
+  {{ end }}
+  <meta property="og:url" content="{{ .Page.Permalink }}" />
+  {{ if .Page.Params.ogImage }}
+  <meta
+    property="og:image"
+    content="{{ .Site.BaseURL }}{{ .Page.Params.ogImage }}"
+  />
+  {{ end }}
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
+  {{ if .Page.Params.ogType }}
+  <meta property="og:type" content="{{ .Page.Params.ogType }}" />
+  {{ end }} {{ if .Site.Params.twitterCard }}
+  <meta name="twitter:card" content="{{ .Site.Params.twitterCard }}" />
+  {{ end }} {{ if .Site.Params.twitterId }}
+  <meta name="twitter:creator" content="@{{ .Site.Params.twitterId }}" />
+  {{ end }} {{ if .Page.Params.noindex }}
+  <meta name="robots" content="noindex, nofollow" />
+  {{ end }}
   <!-- prettier-ignore -->
   {{ $vendor := resources.Get "css/vendor.css" | resources.ExecuteAsTemplate "vendor.css" . }}
   {{ $css := slice $vendor | resources.Concat "css/vendor.css" | resources.PostCSS | minify }}

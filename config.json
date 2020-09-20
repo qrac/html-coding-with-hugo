@@ -1,7 +1,6 @@
 {
   "baseURL": "https://html-coding-with-hugo.netlify.app/",
   "languageCode": "ja",
-  "title": "HTML Coding with Hugo",
   "disableKinds": ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"],
   "layoutDir": "./src/components",
   "contentDir": "./src/pages",
@@ -9,5 +8,14 @@
   "staticDir": "./static",
   "publishDir": "./dist",
   "disableHugoGeneratorInject": true,
-  "uglyURLs": true
+  "uglyURLs": true,
+  "title": "HTML Coding with Hugo",
+  "params": {
+    "description": "HTML・SCSS・JavaScriptのコーディングを爆速化・省エネ化するフロントエンド環境",
+    "ogImage": "img/ogp.png",
+    "twitterCard": "summary_large_image",
+    "twitterId": "Qrac_JP",
+    "noindex": false,
+    "copylight": "© QRANOKO 2020"
+  }
 }

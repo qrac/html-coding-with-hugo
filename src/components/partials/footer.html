@@ -1,8 +1,10 @@
+{{ if .Site.Params.copylight }}
 <footer class="footer">
   <div class="footer-inner">
-    <p class="footer-copylight">© QRANOKO 2020</p>
+    <p class="footer-copylight">{{ .Site.Params.copylight }}</p>
   </div>
 </footer>
+{{ end }}
 
 <!-- prettier-ignore -->
 {{ $js := resources.Get "js/script.js" | js.Build | babel | minify }}

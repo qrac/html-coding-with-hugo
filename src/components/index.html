@@ -3,7 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta property="format-detection" content="telephone=no, email=no, address=no" />
     <title>{{ .Site.Title }}</title>
+    <!-- prettier-ignore -->
+    {{ if .Site.Params.description }}
+    <meta property="description" content="{{ .Site.Params.description }}" />
+    {{ end }}
+    <meta property="og:title" content="{{ .Site.Title }}" />
+    {{ if .Site.Params.description }}
+    <meta property="og:description" content="{{ .Site.Params.description }}" />
+    {{ end }}
+    <meta property="og:url" content="{{ .Site.BaseURL }}" />
+    {{ if .Site.Params.ogImage }}
+    <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.ogImage }}" />
+    {{ end }}
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:type" content="website" />
+    {{ if .Site.Params.twitterCard }}
+    <meta name="twitter:card" content="{{ .Site.Params.twitterCard }}" />
+    {{ end }}
+    {{ if .Site.Params.twitterId }}
+    <meta name="twitter:creator" content="@{{ .Site.Params.twitterId }}" />
+    {{ end }}
+    {{ if .Site.Params.noindex }}
+    <meta name="robots" content="noindex, nofollow" />
+    {{ end }}
     <!-- prettier-ignore -->
     {{ $reset := resources.Get "css/reset.css" | resources.ExecuteAsTemplate "reset.css" . }}
     {{ $dashboard := resources.Get "css/dashboard.css" | resources.ExecuteAsTemplate "dashboard.css" . }}
