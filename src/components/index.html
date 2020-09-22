@@ -56,7 +56,7 @@
 
     <main class="dashboard-main">
       <div class="dashboard-main-inner">
-        {{ if where .Site.Pages "Params.type" "components" }}
+        {{ if where .Site.Pages "Params.type" "page" }}
           <h2 class="dashboard-heading">HTMLページ</h2>
           <ul class="dashboard-list">
             {{ range sort (where .Site.Pages "Params.type" "page") "File.LogicalName" }}

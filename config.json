@@ -4,6 +4,7 @@
   "disableKinds": ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"],
   "layoutDir": "./src/components",
   "contentDir": "./src/pages",
+  "dataDir": "./src/data",
   "assetDir": "./src/assets",
   "staticDir": "./static",
   "publishDir": "./dist",

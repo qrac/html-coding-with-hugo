@@ -4,6 +4,15 @@
     <a href="#">
       <img class="header-logo" src="/img/logo.svg" alt="{{ .Site.Title }}" />
     </a>
+    <nav class="header-menu-desktop">
+      {{ partial "menus/main.html" . }}
+    </nav>
   </div>
+  <nav class="header-menu-mobile">
+    <details class="menu-details">
+      <summary class="menu-summary">MENU</summary>
+      {{ partial "menus/main.html" . }}
+    </details>
+  </nav>
 </header>
 {{ printf "<!-- - Header -->" | safeHTML }}

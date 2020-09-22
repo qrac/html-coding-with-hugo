@@ -1,0 +1,16 @@
+{
+  "main": {
+    "list": [
+      {
+        "linkTitle": "ページリスト",
+        "url": "/",
+        "externalLink": false
+      },
+      {
+        "linkTitle": "ソースコード",
+        "url": "https://github.com/qrac/html-coding-with-hugo",
+        "externalLink": true
+      }
+    ]
+  }
+}

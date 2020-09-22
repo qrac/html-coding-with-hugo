@@ -4,3 +4,13 @@
 
 // Test: Import node_modules
 @import "shitajicss/src/scss/_shitaji.scss";
+
+html {
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Noto Sans Japanese", Meiryo, "Yu Gothic Medium", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+  color: #3a3635;
+}

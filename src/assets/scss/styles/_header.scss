@@ -3,14 +3,114 @@
 //----------------------------------------------------
 
 .header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 1000px;
   margin-right: auto;
   margin-left: auto;
   padding: 20px;
 }
 
+//----------------------------------------------------
+// Header Logo
+//----------------------------------------------------
+
 .header-logo {
   display: block;
   width: 194px;
   height: 40px;
+}
+
+//----------------------------------------------------
+// Header Menu Desktop
+//----------------------------------------------------
+
+@media (max-width: 999px) {
+  .header-menu-desktop {
+    display: none;
+  }
+}
+
+.header-menu-desktop .menu {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-menu-desktop .menu-link {
+  position: relative;
+  display: flex;
+  padding: 12px;
+  font-size: 0.875em;
+  font-weight: 500;
+  &:hover,
+  &.is-active {
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: calc(100% - 12px * 2);
+      height: 1px;
+      background-color: currentColor;
+      transform: translateX(-50%);
+    }
+  }
+  &:hover {
+    &:after {
+      opacity: 0.25;
+    }
+  }
+  &.is-active {
+    &:after {
+      opacity: 0.5;
+    }
+  }
+}
+
+//----------------------------------------------------
+// Header Menu Mobile
+//----------------------------------------------------
+
+@media (min-width: 1000px) {
+  .header-menu-mobile {
+    display: none;
+  }
+}
+
+.header-menu-mobile .menu-details {
+  position: relative;
+}
+
+.header-menu-mobile .menu-summary {
+  position: absolute;
+  top: -40px;
+  right: 10px;
+  padding: 10px;
+  transform: translateY(-50%);
+}
+
+.header-menu-mobile .menu-item {
+  border-top: 1px solid #e0e1e2;
+}
+
+.header-menu-mobile .menu-link {
+  position: relative;
+  display: flex;
+  padding: 12px 36px 12px 16px;
+  font-size: 0.875em;
+  font-weight: 500;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid rgba(0, 0, 0, 0.18);
+    border-right: 2px solid rgba(0, 0, 0, 0.18);
+    transform: translateY(-50%) rotate(45deg);
+    z-index: 2;
+  }
 }

@@ -13,11 +13,14 @@ HTML・SCSS・JavaScript のコーディングを爆速化・省エネ化する�
 - ビルド・ライブリロードが爆速で省エネ
 - 開発環境は JavaScript フレームワーク風の構成
 - 納品コードは gulp コーディング風に出力
-- ページリストの自動生成
+- gulp・webpack・rollup・sass・Browsersync が不要
+- ページリストを自動生成
 - ページリストに進捗状況を表示
 - ページリストに担当者名を表示
 - 下書き機能（ページ毎に本番ビルドから除外可能）
 - HTML でテンプレートを書ける（Prettier 対応）
+- HTML テンプレートのメニューを自動生成
+- HTML テンプレートへの JSON データ読み込み
 - CSS / SCSS / PostCSS (Autoprefixer etc.)
 - JavaScript / ESNext / Babel
 - node_modules からの ライブラリ読み込み
@@ -63,6 +66,9 @@ description: "ページのディスクリプション"
 ogImage: "img/ogp.jpg"
 ogType: "website"
 noindex: false
+linkTitle: "メニュータイトル"
+menu: "main"
+weight: 10
 layout: "single"
 type: "page"
 draft: false
@@ -70,18 +76,21 @@ progress: 0
 assignee: "担当者名"
 ```
 
-| Key           | Type      | Value                          | Description                               |
-| ------------- | --------- | ------------------------------ | ----------------------------------------- |
-| `title`       | `string`  | `"ページタイトル"`             | ページタイトル（一覧にも自動出力）        |
-| `description` | `string`  | `"ページのディスクリプション"` | ページのディスクリプション                |
-| `ogImage`     | `string`  | `"img/ogp.jpg"`                | Open Graph Image へのパス（BaseURL 配下） |
-| `ogType`      | `string`  | `"website"` or `"article"`     | Open Graph Type を指定                    |
-| `noindex`     | `boolean` | `false` or `true`              | `true` にすると noindex タグを付与        |
-| `layout`      | `string`  | `"single"` etc.                | ページをラップするテンプレート            |
-| `type`        | `string`  | `"pages"` or `"components"`    | ページ一覧での分類に使用                  |
-| `draft`       | `boolean` | `false` or `true`              | `true` にするとビルドから除外             |
-| `progress`    | `number`  | `0` 〜 `4`                     | ページ一覧で進捗状況を表示                |
-| `assignee`    | `string`  | `"担当者名"`                   | ページ一覧で担当者名を表示                |
+| Key           | Type      | Value                          | Description                                    |
+| ------------- | --------- | ------------------------------ | ---------------------------------------------- |
+| `title`       | `string`  | `"ページタイトル"`             | ページタイトル（一覧にも自動出力）             |
+| `description` | `string`  | `"ページのディスクリプション"` | ページのディスクリプション                     |
+| `ogImage`     | `string`  | `"img/ogp.jpg"`                | Open Graph Image へのパス（BaseURL 配下）      |
+| `ogType`      | `string`  | `"website"` or `"article"`     | Open Graph Type を指定                         |
+| `noindex`     | `boolean` | `false` or `true`              | `true` にすると noindex タグを付与             |
+| `linkTitle`   | `string`  | `"メニュータイトル"`           | メニュー用のタイトル（テンプレートに自動出力） |
+| `menu`        | `string`  | `"main"`                       | 表示させるメニューの ID                        |
+| `weight`      | `number`  | `-9999` 〜 `9999`              | メニューの順序を決める数値（小さいほど前）     |
+| `layout`      | `string`  | `"single"` etc.                | ページをラップするテンプレート                 |
+| `type`        | `string`  | `"pages"` or `"components"`    | ページ一覧での分類に使用                       |
+| `draft`       | `boolean` | `false` or `true`              | `true` にするとビルドから除外                  |
+| `progress`    | `number`  | `0` 〜 `4`                     | ページ一覧で進捗状況を表示                     |
+| `assignee`    | `string`  | `"担当者名"`                   | ページ一覧で担当者名を表示                     |
 
 ### 6. Create components
 
@@ -119,6 +128,9 @@ $ npm run build
   - [Shortcodes](https://gohugo.io/content-management/shortcodes/)
   - [Create Your Own Shortcodes](https://gohugo.io/templates/shortcode-templates/)
   - [Partial Templates](https://gohugo.io/templates/partials/)
+  - [Menus](https://gohugo.io/content-management/menus/)
+  - [Menu Templates](https://gohugo.io/templates/menu-templates/)
+  - [Data Templates](https://gohugo.io/templates/data-templates/)
   - [Image Processing](https://gohugo.io/content-management/image-processing/)
   - [hugo server](https://gohugo.io/commands/hugo_server/)
 
@@ -131,7 +143,7 @@ $ npm run build
 - `pages` では通常のコメントが残るが、他のテンプレートでは専用のコメント記述方法が必要
 - `components/_default` を `components/layouts` にリネームしたいができない
 - `partials` と `shortcodes` の使い方は似ているが Hugo の仕様上 1 つにまとめられない
-- `partials` や `shortcodes` に多階層のオブジェクトを props として渡せるかは未検証
+- `data` 内の JSON ファイル名にハイフンを用いることは許可されていない
 - HTML は Minify のみ可能で、コメントも残せないため js-beautify を仕上げに使う
 - SCSS は仕様通り CSS インポートができず、テンプレ化で無理を通しても弊害が出る
 - PostCSS をビルドに含めると、最初のビルド処理が 1 秒程遅くなる
