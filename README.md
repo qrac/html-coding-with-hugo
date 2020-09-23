@@ -84,7 +84,7 @@ assignee: "担当者名"
 | `ogType`      | `string`  | `"website"` or `"article"`     | Open Graph Type を指定                     |
 | `noindex`     | `boolean` | `false` or `true`              | `true` にすると noindex タグを付与         |
 | `linkTitle`   | `string`  | `"メニュータイトル"`           | メニュー用タイトル（テンプレートに出力）   |
-| `menu`        | `string`  | `"main"`                       | 表示させるメニューの ID                    |
+| `menu`        | `string`  | `"main"` etc.                  | 表示させるメニューの ID                    |
 | `weight`      | `number`  | `-9999` 〜 `9999`              | メニューの順序を決める数値（小さいほど前） |
 | `layout`      | `string`  | `"single"` etc.                | ページをラップするテンプレート             |
 | `type`        | `string`  | `"pages"` or `"components"`    | ページリストでの分類に使用                 |
